@@ -1,23 +1,61 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view class="bigbox">
+    <view class="hearderbox">
+        <view class="swiper">
+            <swiper autoplay circular style="height:180px">
+                <swiper-item wx:for="{{getlunbo}}" wx:key="id" class="swiper">
+                    <image src="{{item.image}}" class="swiperimg"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+
+        <view class="flyjiji">
+            <view class="flytext">
+                <text class="flytext1">中国</text>
+                <image class="flytext3" src="/assets/index_img/fly.svg"></image>
+                <text class="flytext2">米国</text>
+            </view>
+            <view>
+                <button type="primary" style="margin-top:10px; background-color: #2c2c2c;">立即转运</button>
+            </view>
+
+        </view>
+        <view class="ouqi">
+            <view class="ouqi1">
+                <view class="ouqi1text1">
+                    <text>转运须知</text>
+                </view>
+                <view class="ouqi1text2">
+                    <text>流程和主义事项</text>
+                </view>
+                <view class="ouqi1text3">
+                    <image src="/assets/index_img/转运须知箭头.png" class="jiantou"></image>
+                    <image src="/assets/index_img/转运须知汽车.png" style="width: 89px;height: 89px;margin-top: 1px;" class="car"></image>
+                </view>
+            </view>
+            <view class="ouqi2">
+                <view class="ouqi2text1">
+                    <text>运费估算</text>
+                </view>
+                <view class="ouqi2text2">
+                    <text>费用心中有数</text>
+                </view>
+                <view class="ouqi2text3">
+                    <image src="/assets/index_img/转运须知箭头.png" class="jiantou"></image>
+                    <image src="/assets/index_img/费用须知.png" style="width: 80px;height: 80px;margin-top: 1px;" class="car"></image>
+                </view>
+            </view>
+        </view>
+        <view class="water" style="margin-top:20px;">
+            <view class="watercontent">
+                转运流程
+            </view>
+            <image src="/assets/index_img/转运流程.png"></image>
+        </view>
+        <view>
+            <button type="primary" style="width: 80%;background-color: #4e148c;margin-top: 20px;border-radius: 20px;">
+                复制仓库地址去淘宝/京东购物
+            </button>
+            <text style="color: #4e148c;font-size: 14px;text-align: left;font-family: PingFangSC-regular;">购物App的收货地址请填写明德转运仓地址</text>
+        </view>
+    </view>
 </view>

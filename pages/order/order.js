@@ -1,30 +1,18 @@
-// pages/my/my.js
+// pages/order/order.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        getlunbo: [],
+
     },
-    // 获取萝卜兔数据
-    getSwiperList() {
-        wx.request({
-            url: 'https://www.escook.cn/slides',
-            method: 'GET',
-            success: (res) => {
-                console.log(res)
-                this.setData({
-                    getlunbo: res.data
-                })
-            }
-        })
-    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.getSwiperList()
+
     },
 
     /**

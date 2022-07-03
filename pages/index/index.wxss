@@ -1,19 +1,186 @@
-/**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+.hearderbox {
+    /* top: 82px; */
+    width: 100%;
+    height: 320px;
+    background-color: #2c2c2c;
+    text-align: center;
+    border-bottom-left-radius: 150px;
+    border-bottom-right-radius: 150px;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.hearderbox image {
+    border-radius: 6px;
+    height: 136px;
+    width: 354px;
+    margin-top: 20px;
 }
 
-.usermotto {
-  margin-top: 200px;
+.flyjiji {
+    /* margin-left: 32px; */
+    margin: 0 auto;
+    top: 306px;
+    width: 312px;
+    height: 180px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 100);
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.flytext {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 70px;
+}
+
+.flytext1 {
+    left: 68px;
+    top: 365px;
+    width: 56px;
+    height: 40px;
+    color: rgba(16, 16, 16, 100);
+    font-size: 28px;
+    text-align: left;
+    font-family: PingFangSC-regular;
+}
+
+.flytext image {
+    width: 46px;
+    height: 46px;
+    margin-top: -10px;
+}
+
+.flytext2 {
+    left: 257px;
+    top: 365px;
+    width: 56px;
+    height: 40px;
+    color: rgba(16, 16, 16, 100);
+    font-size: 28px;
+    text-align: left;
+    font-family: PingFangSC-regular
+}
+
+.ouqi {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.ouqi1 {
+    left: 14px;
+    top: 575px;
+    width: 162px;
+    height: 162px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: #9877bb;
+    color: rgba(16, 16, 16, 100);
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.ouqi1text1 {
+    margin-left: 10px;
+    margin-top: 22px;
+    width: 112px;
+    height: 40px;
+    color: rgba(247, 246, 246, 100);
+    font-size: 28px;
+    text-align: left;
+    font-family: PingFangSC-semiBold;
+}
+
+.ouqi1text2 {
+    margin-left: 10px;
+    width: 98px;
+    height: 20px;
+    color: rgba(247, 246, 246, 100);
+    font-size: 14px;
+    text-align: left;
+    font-family: PingFangSC-regular;
+}
+
+.ouqi1text3 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ouqi1text3 .jiantou {
+    border-radius: 18px;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(75 33 132);
+}
+
+.ouqi2 {
+    left: 197px;
+    top: 575px;
+    width: 162px;
+    height: 162px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: #fc9d62;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.ouqi2text1 {
+    margin-left: 10px;
+    margin-top: 22px;
+    width: 112px;
+    height: 40px;
+    color: rgba(247, 246, 246, 100);
+    font-size: 28px;
+    text-align: left;
+    font-family: PingFangSC-semiBold;
+}
+
+.ouqi2text2 {
+    margin-left: 10px;
+    width: 98px;
+    height: 20px;
+    color: rgba(247, 246, 246, 100);
+    font-size: 14px;
+    text-align: left;
+    font-family: PingFangSC-regular;
+}
+
+.ouqi2text3 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ouqi2text3 .jiantou {
+    border-radius: 18px;
+    width: 25px;
+    height: 25px;
+    background-color: #ff6200;
+}
+
+.watercontent {
+    left: 18px;
+    top: 767px;
+    width: 112px;
+    height: 40px;
+    color: rgba(0, 0, 0, 1);
+    font-size: 28px;
+    text-align: left;
+    font-family: PingFangSC-semiBold;
+}
+
+.water image {
+    left: 0px;
+    top: 807px;
+    width: 375px;
+
+    height: 109px;
+    margin-top: 0px;
 }
