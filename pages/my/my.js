@@ -5,7 +5,54 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        orderstatus: [
+            {
+            "imageURL": "/assets/icon/待付款.png",
+            "title": "待付款"
+            }, 
+            {
+            "imageURL": "/assets/icon/待收货.png",
+            "title": "待收货"
+            }, 
+            {
+            "imageURL": "/assets/icon/待发货.png",
+            "title": "待发货"
+            }, 
+            {
+            "imageURL": "/assets/icon/待评价 2.0.png",
+            "title": "待评价"
+            }, 
+    ],
+    orderinfo:[
+        {
+            "title":"我的地址",
+            "jiantou":">"
+        },
+        {
+            "title":"我的优惠券",
+            "jiantou":">"
+        },
+        {
+            "title":"活动中心",
+            "jiantou":">"
+        },
+        {
+            "title":"客服中心",
+            "jiantou":">"
+        },
+        {
+            "title":"转运流程",
+            "jiantou":">"
+        },
+        {
+            "title":"转运须知",
+            "jiantou":">"
+        },
+        {
+            "title":"关于我们",
+            "jiantou":">"
+        },
+    ]
     },
 
     /**

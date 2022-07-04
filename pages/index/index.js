@@ -6,6 +6,27 @@ Page({
      */
     data: {
         getlunbo: [],
+        show: false,
+        popup1text1:[
+            {
+                "popup1text":"普通货物"
+            },
+            {
+                "popup1text":"普通货物"
+            },
+            {
+                "popup1text":"电子产品"
+            },
+            {
+                "popup1text":"特色美食"
+            },
+            {
+                "popup1text":"中国美妆"
+            },
+            {
+                "popup1text":"广东ESM"
+            },
+        ]
     },
     // 获取萝卜兔数据
     getSwiperList() {
@@ -19,6 +40,20 @@ Page({
                 })
             }
         })
+    },
+    // tomoney: function(event) {
+    //     navigator:"/pages/carmoney/carmoney"
+    //   },
+
+    showPopup: function () {
+        this.setData({
+            show: true
+        });
+    },
+    onClose() {
+        this.setData({
+            show: false
+        });
     },
     /**
      * 生命周期函数--监听页面加载

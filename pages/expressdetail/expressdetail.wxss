@@ -1,0 +1,29 @@
+.header {
+    left: 10px;
+    top: 107px;
+    width: 355px;
+    height: 86px;
+    /* line-height: 20px; */
+    margin: 0 auto;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 100);
+    text-align: center;
+}
+
+.leftbox {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lijilingqu {
+    margin-left: 10px;
+    width: 83px;
+    height: 33px;
+    line-height: 33px;
+    color: rgba(255, 255, 255, 100);
+    font-size: 12px;
+    text-align: center;
+    font-family: PingFangSC-regular;
+    border-radius: 17px;
+    background-color: rgba(246, 57, 13, 100);
+}

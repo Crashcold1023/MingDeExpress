@@ -1,2 +1,11 @@
 <!--pages/express/express.wxml-->
-<text>pages/express/express.wxml</text>
+<view>
+    <view class="images">
+        <navigator url="/pages/expressdetail/expressdetail">
+            <image src="/assets/index_img/优惠券1.png"></image>
+        </navigator>
+        <image src="/assets/index_img/优惠券1.png"></image>
+        <image src="/assets/index_img/优惠券2.png"></image>
+        <image src="/assets/index_img/优惠券2.png"></image>
+    </view>
+</view>

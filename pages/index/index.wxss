@@ -32,7 +32,7 @@
 .flytext {
     display: flex;
     justify-content: space-around;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .flytext1 {
@@ -166,7 +166,7 @@
 }
 
 .watercontent {
-    left: 18px;
+    margin-left: 18px;
     top: 767px;
     width: 112px;
     height: 40px;
@@ -183,4 +183,29 @@
 
     height: 109px;
     margin-top: 0px;
+}
+
+.popup1 {
+    width: 310px;
+    height: 285px;
+    line-height: 20px;
+    border-radius: 4px 4px 4px 4px;
+    background-color: rgba(255, 255, 255, 100);
+    text-align: center;
+}
+
+.popupbox {
+    width: 114px;
+    height: 48px;
+    line-height: 47px;
+    border-radius: 7px;
+    background-color: rgba(76, 22, 142, 100);
+    text-align: center;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.popup1text1 {
+    color: rgba(247, 246, 246, 100);
+    font-size: 20px;
+    font-family: PingFangSC-regular;
 }

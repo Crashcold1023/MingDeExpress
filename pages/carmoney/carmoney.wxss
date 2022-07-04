@@ -1,0 +1,69 @@
+/* pages/carmoney/carmoney.wxss */
+.gusuan {
+    color: rgba(16, 16, 16, 100);
+    font-size: 18px;
+    text-align: left;
+    font-family: PingFangSC-semiBold;
+}
+
+.gusuan1 {
+    justify-content: center;
+    width: 154px;
+    height: 86px;
+    line-height: 23px;
+    border-radius: 14px;
+    background-color: rgba(8, 215, 48, 48);
+    color: rgba(10, 172, 41, 100);
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.gusuan2 {
+    justify-content: center;
+    width: 154px;
+    height: 86px;
+    line-height: 23px;
+    border-radius: 14px;
+    background-color: rgba(8, 129, 236, 48);
+    color: rgba(16, 16, 16, 100);
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.tiji {
+    justify-content: center;
+    margin: 0 auto;
+    width: 333px;
+    height: 86px;
+    line-height: 20px;
+    border-radius: 14px;
+    background-color: #90aef6;
+    color: rgba(16, 16, 16, 100);
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.tiji1 {
+    justify-content: center;
+    margin: 0 auto;
+    width: 333px;
+    height: 86px;
+    line-height: 23px;
+    border-radius: 14px;
+    background-color: rgba(11, 115, 247, 100);
+    color: rgba(16, 16, 16, 100);
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 3px 7px 2px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}

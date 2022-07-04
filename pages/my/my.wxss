@@ -1,1 +1,43 @@
-/* pages/my/my.wxss */
+.bigbox {
+    height: 180px;
+    background-color: #2c2c2c;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.username {
+    /* line-height: 20px; */
+    /* line-height: 180px; */
+    color: #ffffff;
+    font-size: 20px;
+    font-family: PingFangSC-regular;
+}
+
+.smallbox2 {
+    margin: 0 auto;
+    width: 360px;
+    height: 132px;
+    line-height: 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgba(255, 255, 255, 100);
+    color: rgba(16, 16, 16, 100);
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(187, 187, 187, 100);
+}
+
+.smallbox3 {
+    width: 360px;
+    height: 301px;
+    line-height: 20px;
+    border-radius: 11px 11px 11px 11px;
+    background-color: rgba(255, 255, 255, 100);
+    text-align: center;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(187, 187, 187, 100);
+}

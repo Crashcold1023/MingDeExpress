@@ -1,0 +1,31 @@
+<!--pages/carmoney/carmoney.wxml-->
+<view>
+    <view style="text-align: center;">
+        <image style="width: 375px;height: 566px;;" src="/assets/icon/费用须知.png"></image>
+    </view>
+    <view>
+        <view class="gusuan">运费估算</view>
+    </view>
+    <view style="display: flex;justify-content: space-around;margin-bottom: 10px;">
+        <view class="gusuan1" style="display: flex;flex-direction: column;">
+            <view >转运渠道</view>
+            <view >普通货物</view>
+        </view>
+        <view class="gusuan2" style="display: flex;flex-direction: column;">
+            <view >转运渠道</view>
+            <view >普通货物</view>
+        </view>
+    </view>
+    <view>
+        <view class="tiji" style="display: flex;flex-direction: column;margin-bottom: 10px;">
+            <view >估算体积</view>
+            <view >请输入长宽高</view>
+        </view>
+    </view>
+    <view>
+        <view class="tiji1" style="display: flex;flex-direction: column;">
+            <view >估算体积</view>
+            <view >请输入长宽高</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+{
+  "name": "mingdeexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crashcold1023/MingDeExpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crashcold1023/MingDeExpress/issues"
+  },
+  "homepage": "https://github.com/Crashcold1023/MingDeExpress#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.3",
+    "vant": "^3.5.2",
+    "vant-weapp": "^0.5.29"
+  }
+}

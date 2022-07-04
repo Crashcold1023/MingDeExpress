@@ -1,0 +1,28 @@
+<!--pages/expressdetail/expressdetail.wxml-->
+<view>
+    <view class="header">
+        <view class="leftbox">
+            <view>
+                <view class="text" style="text-align: center;width: 130px;">
+                    <text class="text1">¥</text>
+                    <text class="text2" style="font-size: 40px;">10</text>
+                </view>
+                <view style="text-align: center;width: 130px;">
+                    <text class="text3">满¥599可用</text>
+                </view>
+            </view>
+            <view class="header1" style="line-height: 41px;">
+                <view>双十一无门槛十元券</view>
+                <view style="display: flex;">
+                    <view style="color: coral;">2022.06.08到期</view>
+                    <view class="lijilingqu">立即领取</view>
+                </view>
+
+            </view>
+        </view>
+    </view>
+    <image style="width: 354px; height: 10px;margin: 0 auto;display: flex;justify-content: space-around;" src="/assets/index_img/线条1.png"></image>
+    <view style="text-align: center;">
+        <image style="width: 325px;height: 445px; margin:0 auto" src="/assets/index_img/有效期.png"></image>
+    </view>
+</view>

@@ -1,1 +1,9 @@
 /* pages/express/express.wxss */
+.images{
+    margin-top: 20px;
+    text-align: center;
+}
+.images image {
+    width: 333px;
+    height: 120px;
+}
