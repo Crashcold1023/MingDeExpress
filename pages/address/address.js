@@ -1,5 +1,6 @@
-// pages/expressdetail/expressdetail.js
+// pages/address/address.js
 Page({
+
     /**
      * 页面的初始数据
      */
@@ -7,18 +8,12 @@ Page({
 
     },
 
-    clickGet: function () {
-        wx.showToast({
-            title: '领取成功',
-            icon: 'success',
-            duration: 2000 //持续的时间
-        })
-    },
-
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {},
+    onLoad(options) {
+
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

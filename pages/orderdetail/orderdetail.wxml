@@ -1,0 +1,32 @@
+<!--pages/orderdetail/orderdetail.wxml-->
+<view>
+    <van-notice-bar left-icon="volume-o" scrollable text="客户您好 您的全部快递包裹已经到达明德转运仓库 请及时确认拣货打包!!!" />
+    <view class="orderress" style="margin-top: 20px;">
+        <view>
+            <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
+                <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">明德转运仓</view>
+                <view style="font-size: 16px;">13612362023</view>
+                <view style="margin-left: 38px;">深圳市龙岗区康桥花园2期24栋805室</view>
+            </view>
+            <van-divider />
+            <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
+                <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">KK数码</view>
+                <view style="font-size: 16px;">13612362023</view>
+                <view style="margin-left: 38px;">汕头市潮南区峡山镇鲤鱼门1103号KK数码</view>
+            </view>
+        </view>
+    </view>
+    <view class="ordercount">
+        <view style="color:red">
+            <text>Tip:快递全部到齐点击确认打包后 订单不可修改!</text>
+        </view>
+        <view>
+            <van-cell-group>
+                <van-field label-class="color:#00000c" required="true" size="large" label="快递单号" placeholder="请输入"  />
+                
+            </van-cell-group>
+        </view>
+    </view>
+</view>

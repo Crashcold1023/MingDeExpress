@@ -1,31 +1,13 @@
 // pages/my/my.js
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
         getlunbo: [],
         show: false,
-        popup1text1:[
-            {
-                "popup1text":"普通货物"
-            },
-            {
-                "popup1text":"普通货物"
-            },
-            {
-                "popup1text":"电子产品"
-            },
-            {
-                "popup1text":"特色美食"
-            },
-            {
-                "popup1text":"中国美妆"
-            },
-            {
-                "popup1text":"广东ESM"
-            },
+        popup1text1: [
+                "普通货物","普通货物","电子产品","特色美食","中国美妆","广东ESM"
         ]
     },
     // 获取萝卜兔数据
@@ -45,15 +27,39 @@ Page({
     //     navigator:"/pages/carmoney/carmoney"
     //   },
 
-    showPopup: function () {
+    // getUserInfo(event) {
+    // console.log(event.detail);
+    // this.setData({
+    //             show: true
+    //         });
+    // },
+
+    popup1: function (e) {
+        console.log(e)
         this.setData({
-            show: true
+            colorIndex: e.currentTarget.dataset.index
         });
     },
     onClose() {
         this.setData({
             show: false
         });
+    },
+
+    showPopup: function () {
+        this.setData({
+            show: true
+        });
+    },
+    // onClose() {
+    //     this.setData({
+    //         show: false
+    //     });
+    // },
+    toaddress() {
+        wx.navigateTo({
+            url: '/pages/address/address',
+        })
     },
     /**
      * 生命周期函数--监听页面加载

@@ -41,11 +41,21 @@
 
 /*订单列表*/
 .swiper-box {
-    background: #efefef;
+    /* background: #efefef; */
+    height: 100vh;
 }
 
 .orderDetails {
-    background: white;
+    margin: 6px auto;
+    width: 347px;
+    height: 136px;
+    background-color: rgba(255, 255, 255, 79);
+    color: rgba(16, 16, 16, 100);
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(255, 255, 255, 100);
 }
 
 /* .orderboxss {
@@ -81,7 +91,7 @@
 
 .orderListDetails {
     display: flex;
-    height: 120px;
+    height: 48px;
 
 }
 
@@ -103,8 +113,8 @@
     display: flex;
     /* display: flex; */
     justify-content: space-around;
-    font-size: 30px;
-
+    font-size: 22px;
+    margin-top: 10px;
 }
 
 .orderListDetails .productInfo .productTitle {
@@ -117,11 +127,7 @@
 }
 
 .productCount {
-    margin-top: 10px;
-    height: 40px;
     line-height: 40px;
-    border-bottom: 1rpx solid #f3f3f3;
-    font-size: .8rem;
 }
 
 .productCount>view {
@@ -131,7 +137,6 @@
 
 .payment-btn,
 .remind-btn {
-    margin-top: 10px;
     height: 15px;
     padding: 5px 10px;
     border: 1px solid red;
@@ -143,6 +148,6 @@
 }
 
 image {
-    width: 46px;
-    height: 46px;
+    width: 34px;
+    height: 34px;
 }

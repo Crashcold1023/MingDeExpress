@@ -1,0 +1,16 @@
+/* pages/address/address.wxss */
+.ressku {
+    margin: 20px auto;
+    width: 347px;
+    height: 135px;
+    line-height: 20px;
+    opacity: 0.85;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 79);
+    color: rgba(16, 16, 16, 100);
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    border: 1px solid rgba(255, 255, 255, 100);
+}

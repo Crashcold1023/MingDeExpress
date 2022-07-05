@@ -26,15 +26,15 @@ Page({
     orderinfo:[
         {
             "title":"我的地址",
-            "jiantou":">"
+            // "jiantou":">"
         },
         {
             "title":"我的优惠券",
-            "jiantou":">"
+            // "jiantou":">"
         },
         {
             "title":"活动中心",
-            "jiantou":">"
+            // "jiantou":">"
         },
         {
             "title":"客服中心",
@@ -42,15 +42,15 @@ Page({
         },
         {
             "title":"转运流程",
-            "jiantou":">"
+            // "jiantou":">"
         },
         {
             "title":"转运须知",
-            "jiantou":">"
+            // "jiantou":">"
         },
         {
             "title":"关于我们",
-            "jiantou":">"
+            // "jiantou":">"
         },
     ]
     },

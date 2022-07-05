@@ -62,20 +62,31 @@
             <text style="color: #4e148c;font-size: 14px;text-align: left;font-family:PingFangSC-regular;">购物App的收货地址请填写明德转运仓地址</text>
         </view>
     </view>
-    <van-popup show="{{ show }}" bind:close="onClose">
+    <!-- <van-popup show="{{ show }}" bind:close="onClose">
         <view class="popup1">
             <view style="display: flex;flex-wrap: wrap;justify-content: space-between; padding: 0px 28px;">
                 <view wx:for="{{popup1text1}}" wx:for-item="popup1text1" class="popupbox" style="margin-top: 10px;">
                     <view class="popup1text1">{{popup1text1.popup1text}}</view>
                 </view>
-                <button type="primary" style="margin-top: 48px;background-color: #ffff; color: lawngreen;">
-                    下一步
+                    <button bindtap="toaddress" type="primary" style="margin-top: 48px;background-color: #ffff; color: lawngreen;">
+                        下一步
+                    </button>
+            </view>
+        </view>
+    </van-popup> -->
+    <van-dialog use-slot title="选择渠道" show="{{ show }}" show-cancel-button confirm-button-open-type="confirm" bind:confirm="toaddress" bind:close="onClose">
+        <view class="popup1">
+            <view style="display: flex;flex-wrap: wrap;justify-content: space-between; padding: 0px 28px;">
+                <!-- <view wx:for="{{popup1text1}}" wx:for-item="popup1text1" class="popupbox" data-index='{{index}}' style="margin-top: 10px;">
+                    <view class="popup1text1" bindtap="popup1">{{popup1text1}}</view>
+                </view> -->
+                <button class="btn" wx:for="{{popup1text1}}" data-index='{{index}}' bindtap="popup1" 
+                style="{{index === colorIndex ? 'background:#22272e;color:#fff;' : 'background:#fff;color:#867575'}}">
+                    {{item}}
                 </button>
             </view>
-
-
-
-
         </view>
-    </van-popup>
+    </van-dialog>
 </view>
+
+<!-- style="{{index === colorIndex ? 'background:#4e148c; color:#fff;' : 'background:#FFF; color:#4e148c;'}}" -->

@@ -4,7 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        currtab: 0,
+        currtab: 1,
         swipertab: [{
                 id: 0,
                 name: '全部'
@@ -145,12 +145,22 @@ Page({
     //         }],
     //     })
     // },
-
+    warn(){
+        wx.showToast({
+          title: '提醒成功',
+          success:'success'
+        })
+    },
+    getOrderDetails(){
+        wx.navigateTo({
+          url: '/pages/orderdetail/orderdetail',
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+    
     },
 
     /**

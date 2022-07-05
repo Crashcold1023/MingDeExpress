@@ -29,6 +29,7 @@
         "showShadowRootInWxmlPanel": true,
         "packNpmManually": false,
         "enableEngineNative": false,
+        "checkSiteMap": false,
         "packNpmRelationList": [
             {
                 "packageJsonPath": "./package.json",

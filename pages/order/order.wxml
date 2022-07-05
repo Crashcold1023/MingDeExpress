@@ -22,7 +22,7 @@
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" bindtap="alreadyShow">
         <view class="orderboxss">
-            <view class="orderDetails" wx:for="{{alreadyOrder}}" wx:key="index">
+            <view class="orderDetails" wx:for="{{alreadyOrder}}" wx:key="index" >
                 <view class="orderListTitle">
                     <text class="userName">{{item.name}}</text>
                     <text class="orderStatus">{{item.state}}</text>
@@ -46,7 +46,7 @@
     </swiper-item>
     <!-- 待付款 -->
     <swiper-item>
-        <scroll-view class="hot-box" scroll-y="true" bindtap="waitPayShow">
+        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="waitPayShow"> -->
             <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key="index">
                 <view class="orderListTitle">
                     <text class="userName">{{item.name}}</text>
@@ -68,11 +68,11 @@
                     </view>
                 </view> -->
             </view>
-        </scroll-view>
+        <!-- </scroll-view> -->
     </swiper-item>
     <!-- 已付款 -->
     <swiper-item>
-        <scroll-view class="hot-box" scroll-y="true" bindtap="lostShow">
+        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="lostShow"> -->
             <view class="orderDetails" wx:for="{{lostOrder}}" wx:key="index">
                 <view class="orderListTitle">
                     <text class="userName">{{item.name}}</text>
@@ -88,15 +88,18 @@
                     </view>
                 </view>
                 <view class="productCount">
-                    <view class="remind-btn">提醒发货</view>
+                    <view class="remind-btn" bindtap="warn">提醒发货</view>
+                </view>
+                <view class="productCount">
+                    <view class="remind-btn" bindtap="getOrderDetails">详情</view>
                 </view>
             </view>
-        </scroll-view>
+        <!-- </scroll-view> -->
     </swiper-item>
     <!--已完成 -->
     <swiper-item>
-        <scroll-view class="hot-box" scroll-y="true" bindtap="waitShow">
-            <view class="orderDetails" wx:for="{{lostOrder}}" wx:key="index">
+        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="waitShow"> -->
+            <view class="orderDetails" wx:for="{{lostOrder}}" wx:key="index" >
                 <view class="orderListTitle">
                     <text class="userName">{{item.name}}</text>
                     <text class="orderStatus">{{item.state}}</text>
@@ -112,7 +115,7 @@
                     <view class="remind-btn">确认收货</view>
                 </view>
             </view>
-        </scroll-view>
+        <!-- </scroll-view> -->
     </swiper-item>
     <!--已完成 E -->
 

@@ -9,10 +9,13 @@
     </view>
     <view class="smallbox2">
         <view class="myorder" style="font-size: 20px;font-family: PingFangSC-regular;margin-top: 14px;display: flex;justify-content: space-between;padding: 0 16px;margin-bottom: 12px;">
-            <view>我的订单</view>
-            <view>全部订单></view>
+            <!-- <view>我的订单</view> -->
+            <!-- <view>全部订单></view> -->
+            <!-- <van-cell size="large" is-link title="全部订单" link-type="navigateTo" url="/pages/dashboard/index" /> -->
+            <van-cell size="large" title="我的订单"/>
+            <van-cell size="large" title="我的订单" is-link />
         </view>
-        <van-divider />
+        <!-- <van-divider /> -->
         <view style="display: flex;justify-content: space-around;margin-top: 10px">
             <view wx:for="{{orderstatus}}" wx:for-item="orders">
                 <image style="width: 27px;height: 28px;" src="{{orders.imageURL}}"></image>
@@ -20,12 +23,13 @@
             </view>
         </view>
         <view>
-            <view class="smallbox3" style="margin-top: 20px;">
-                <view wx:for="{{orderinfo}}" wx:for-item="orderinfo"
+            <view class="smallbox3" style="margin-top: 18px;margin-bottom: 18px; text-align: left;">
+                <!-- <view wx:for="{{orderinfo}}" wx:for-item="orderinfo"
                  style="margin-top:20px;padding:0 20px; display: flex;justify-content: space-between;">
                     <view style="color: rgba(16, 16, 16, 100);font-size: 20px;font-family: PingFangSC-regular;">{{orderinfo.title}}</view>
                     <view style="font-size: 20px;">{{orderinfo.jiantou}}</view>
-                </view>
+                </view> -->
+                <van-cell wx:for="{{orderinfo}}" wx:for-item="orderinfo" is-link title="{{orderinfo.title}}" link-type="navigateTo" url="/pages/dashboard/index" />
             </view>
         </view>
     </view>
