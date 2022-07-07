@@ -1,4 +1,4 @@
-// pages/address/address.js
+// pages/tomyaddlist/tomyaddlist.js
 Page({
 
     /**

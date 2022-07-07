@@ -58,7 +58,17 @@ Page({
     // },
     toaddress() {
         wx.navigateTo({
-            url: '/pages/address/address',
+            url: '/pages/fallinress/fallinress',
+        })
+    },
+    showPopup1(){
+        wx.navigateTo({
+          url: '/pages/stress/stress',
+        })
+    },
+    tocopyress(){
+        wx.navigateTo({
+          url: '/pages/copyress/copyress',
         })
     },
     /**

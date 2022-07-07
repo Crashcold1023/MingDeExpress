@@ -1,0 +1,39 @@
+<!--pages/address/address.wxml-->
+
+<view>
+    <view class="ressku">
+        <view style="display: flex;margin: 15px 20px;">
+            <image style="width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
+            <view style="font-size: 16px;font-weight:bolder;margin-right: 45%">仓库地址</view>
+            <van-tag type="success" size="medium">一键复制</van-tag>
+        </view>
+        <view style="display: flex;justify-content: space-evenly;margin-bottom: 20px;">
+            <view style="font-size: 15px;font-family: PingFangSC-regular;">明德转运仓</view>
+            <view>13612362023</view>
+        </view>
+        <view>
+            <view>深圳市龙岗区康桥花园2期24栋805室</view>
+        </view>
+    </view>
+
+    <view>
+        <view class="box">
+            <view style="font-size: 18px;margin-top: 10px;">目标国收件信息</view>
+            <view style="display: flex;justify-content: space-around;">
+                <view style="margin-top: 8px; color: red;">Tips 请用英文填写</view>
+                <van-tag style="margin-top: 8px;" type="success" size="medium" bindtap="chooseress">选择地址</van-tag>
+            </view>
+
+            <van-cell-group>
+                <van-field value="{{ username }}" required clearable label="Name:" placeholder="Please fill in the recipient‘s phone" bind:click-icon="onClickIcon" />
+                <van-field value="{{ username }}" required clearable label="Phone：" placeholder="Please fill in the address" bind:click-icon="onClickIcon" />
+                <van-field value="{{ username }}" required clearable label="Address：" placeholder="Please fill in the city" bind:click-icon="onClickIcon" />
+                <van-field value="{{ username }}" required clearable label="City：" placeholder="Please fill in the postcode" bind:click-icon="onClickIcon" />
+                <van-field value="{{ username }}" required clearable label="PostCode：" placeholder="Country：" bind:click-icon="onClickIcon" />
+
+            </van-cell-group>
+
+        </view>
+        <button type="warn" style="margin-top: 20px;">立即转运</button>
+    </view>
+</view>

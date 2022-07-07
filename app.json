@@ -1,12 +1,14 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/copyress/copyress",
         "pages/order/order",
         "pages/express/express",
         "pages/my/my",
         "pages/expressdetail/expressdetail",
         "pages/carmoney/carmoney",
-        "pages/address/address",
+        "pages/fallinress/fallinress",
+        "pages/stress/stress",
         "pages/orderdetail/orderdetail",
         "pages/okorderdetail/okorderdetail",
         "pages/waitorderdetail/waitorderdetail",
@@ -14,7 +16,9 @@
         "pages/Insured/Insured",
         "pages/myexpress/myexpress",
         "pages/myaddress/myaddress",
-        "pages/tomyaddress/tomyaddress"
+        "pages/tomyaddress/tomyaddress",
+        "pages/tomyaddlist/tomyaddlist"
+        
 
 
         

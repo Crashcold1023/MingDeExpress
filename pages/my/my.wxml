@@ -1,10 +1,11 @@
 <!--pages/my/my.wxml-->
 <view class="bigbox">
-    <view class="smallbox" style="    margin-bottom: 10px;">
+
+    <view class="smallbox" style="margin-bottom: 10px;">
         <view class="header">
-            <van-image style="margin-top:20px;" round width="5rem" height="5rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+        <van-image style="margin-top:20px;" round width="5rem" height="5rem" src="{{userInfo.avatarUrl}}" />
         </view>
-        <view class="username" style="text-align: center;">帳戸:XZ</view>
+        <view class="username" style="text-align: center;">{{userInfo.nickName}}</view>
         <view class="username" style="text-align: center;">编码:PT1023</view>
     </view>
     <view class="smallbox2">
@@ -46,7 +47,7 @@
                     <view style="font-size: 20px;">{{orderinfo.jiantou}}</view>
                 </view> -->
                 <!-- <van-cell wx:for="{{orderinfo}}" wx:for-item="orderinfo" is-link title="{{orderinfo.title}}" link-type="navigateTo" url="/pages/dashboard/index" /> -->
-                <van-cell is-link title="我的地址" link-type="navigateTo" url="/pages/address/address" />
+                <van-cell is-link title="我的地址" link-type="navigateTo" url="/pages/myaddress/myaddress" />
                 <van-cell is-link title="我的优惠券" link-type="navigateTo" url="/pages/dashboard/index" />
                 <van-cell is-link title="活动中心" link-type="navigateTo" url="/pages/dashboard/index" />
                 <van-cell is-link title="客服中心" link-type="navigateTo" url="/pages/dashboard/index" />

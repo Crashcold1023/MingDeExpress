@@ -1,8 +1,32 @@
-<!--pages/myaddress/myaddress.wxml-->
-<view>
-    <view>
-        <van-empty description="">
-            <van-button round type="danger" class="bottom-button" bindtap="toaddress">你还没有添加地址哦 点我去添加地址</van-button>
-        </van-empty>
+
+<!-- 当前没有地址布局 -->
+<view wx:if="{{addressList.length==0}}" class="address-none">
+  <view class="none-content">
+    <!-- <image src="../../assets/xmall/noAddress.png"></image> -->
+    <!-- <text class="txt">请添加收货地址</text> -->
+    <button>请添加收货地址</button>
+  </view>
+</view>
+
+<!-- 地址列表 -->
+<view wx:else class="address-list">
+  <view class="address-item" wx:for="{{addressList}}">
+    <view class="item-top">{{item.name}} {{item.mobile}}</view>
+    <view class="item-content">{{item.city}} {{item.street}}</view>
+    <view class="item-bottom">
+      <view class="left" bindtap="clickDefault" data-index="{{index}}">
+        <icon type="{{item.isDefault?'success' : 'circle'}}" size="15"></icon>
+        设为默认地址
+      </view>
+      <view class="right">
+        <view class="txt" bindtap="clickDelete" data-index="{{index}}">删除</view>
+        <view class="txt" bindtap="clickEdit" data-index="{{index}}">编辑</view>
+      </view>
     </view>
+  </view>
+</view>
+
+<!-- 添加地址 -->
+<view class="add-address"  bindtap="clickAdd">
+  <view class="txt" style="color: red;">添加收货地址</view>
 </view>

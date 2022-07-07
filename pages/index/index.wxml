@@ -22,7 +22,7 @@
 
         </view>
         <view class="ouqi">
-            <view class="ouqi1" bindtap="showPopup">
+            <view class="ouqi1" bindtap="showPopup1">
                 <view class="ouqi1text1">
                     <text>转运须知</text>
                 </view>
@@ -56,7 +56,7 @@
             <image src="/assets/index_img/转运流程.png"></image>
         </view>
         <view>
-            <button type="primary" style="width: 80%;background-color: #4e148c;margin-top: 20px;border-radius: 20px;">
+            <button type="primary" style="width: 80%;background-color: #4e148c;margin-top: 20px;border-radius: 20px;" bindtap="tocopyress">
                 复制仓库地址去淘宝/京东购物
             </button>
             <text style="color: #4e148c;font-size: 14px;text-align: left;font-family:PingFangSC-regular;">购物App的收货地址请填写明德转运仓地址</text>
