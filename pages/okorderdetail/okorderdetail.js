@@ -46,14 +46,17 @@ Page({
     },
     close() {
         Dialog.confirm({
-            title: '是否取消订单',
-            message: '取消订单后订单将不能进行后续的操作',
+            title: '是否确认打包所有的快递包裹',
+            message: '确认订单后 订单将会进入拣货状态 快递包裹会进行打包称重',
         })
         .then(() => {
             // on confirm
-           wx.navigateBack({
-               delta:1
-           })
+        //    wx.navigateBack({
+        //        delta:1
+        //    })
+        wx.navigateTo({
+          url: '/pages/waitpayorderdetail/waitpayorderdetail',
+        })
         })
         .catch(() => {
             // on cancel

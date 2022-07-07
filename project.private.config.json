@@ -10,7 +10,7 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/orderdetail/orderdetail",
+                    "pathName": "pages/myexpress/myexpress",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

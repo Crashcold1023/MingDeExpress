@@ -22,7 +22,15 @@
         </view>
     </view>
     <image style="width: 354px; height: 10px;margin: 0 auto;display: flex;justify-content: space-around;" src="/assets/index_img/线条1.png"></image>
-    <view style="text-align: center;">
-        <image style="height: 445px; margin:0 auto" src="/assets/index_img/有效期.png"></image>
+    <view>
+        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+            <van-collapse-item title="全场通用">
+                <view style="text-align: center;margin-top: 10px;">
+                    <image style="height: 445px; margin:0 auto" src="/assets/index_img/有效期.png"></image>
+                </view>
+            </van-collapse-item>
+        </van-collapse>
+
     </view>
+
 </view>

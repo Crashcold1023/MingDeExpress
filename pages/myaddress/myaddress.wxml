@@ -1,0 +1,8 @@
+<!--pages/myaddress/myaddress.wxml-->
+<view>
+    <view>
+        <van-empty description="">
+            <van-button round type="danger" class="bottom-button" bindtap="toaddress">你还没有添加地址哦 点我去添加地址</van-button>
+        </van-empty>
+    </view>
+</view>

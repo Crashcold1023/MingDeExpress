@@ -156,6 +156,11 @@ Page({
           url: '/pages/orderdetail/orderdetail',
         })
     },
+    gopay(){
+        wx.navigateTo({
+            url: '/pages/okorderdetail/okorderdetail',
+          })
+    },
     /**
      * 生命周期函数--监听页面显示
      */

@@ -1,11 +1,17 @@
-// pages/my/my.js
+// pages/myaddress/myaddress.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-  
+
+    },
+
+    toaddress(){
+        wx.navigateTo({
+          url: '/pages/tomyaddress/tomyaddress',
+        })
     },
 
     /**

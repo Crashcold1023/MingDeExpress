@@ -1,13 +1,39 @@
-// pages/my/my.js
+// pages/Insured/Insured.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-  
+        checked: false,
+        checked1: false
     },
+    onChange({
+        detail
+    }) {
+        wx.showModal({
+            title: '提示',
+            content: '是否购买丢失保险?确定后不可作更改',
+            success: (res) => {
+                if (res.confirm) {
+                    this.setData({
+                        checked: true
+                    });
+                }
+            },
+        });
+    },
+    onChange1(res) {
+        if (res.confirm) {
+            this.data.checked1 === false
+        } else {
+            wx.showModal({
+                title: '风险告知书',
+                content: '系统没有检测到您购买保险 注意保险单的提示 请知悉',
+            });
+        }
 
+    },
     /**
      * 生命周期函数--监听页面加载
      */

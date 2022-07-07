@@ -40,11 +40,11 @@ Page({
             colorIndex: e.currentTarget.dataset.index
         });
     },
-    onClose() {
-        this.setData({
-            show: false
-        });
-    },
+    // onClose() {
+    //     this.setData({
+    //         show: false
+    //     });
+    // },
 
     showPopup: function () {
         this.setData({

@@ -30,7 +30,7 @@ Page({
                 // on confirm
                 this.setData({
                     lists: lists,
-                    
+
                 })
                 console.log(lists)
             })
@@ -44,21 +44,24 @@ Page({
         //   icon:"error"
         // })
     },
-    close() {
-        Dialog.confirm({
-            title: '是否取消订单',
-            message: '取消订单后订单将不能进行后续的操作',
-        })
-        .then(() => {
-            // on confirm
-           wx.navigateBack({
-               delta:1
-           })
-        })
-        .catch(() => {
-            // on cancel
-        });
-    },
+    // close() {
+    //     Dialog.confirm({
+    //         title: '是否确认打包所有的快递包裹',
+    //         message: '确认订单后 订单将会进入拣货状态 快递包裹会进行打包称重',
+    //     })
+    //     .then(() => {
+    //         // on confirm
+    //     //    wx.navigateBack({
+    //     //        delta:1
+    //     //    })
+    //     wx.navigateTo({
+    //       url: '/pages/waitorderdetail/waitorderdetail',
+    //     })
+    //     })
+    //     .catch(() => {
+    //         // on cancel
+    //     });
+    // },
     delList: function () {
         var lists = this.data.lists;
         lists.pop(); //实质是删除lists数组内容，使for循环少一次
@@ -66,7 +69,25 @@ Page({
             lists: lists,
         })
     },
-
+    pay(){
+        Dialog.confirm({
+            title: '请确认你的收货地址',
+            message: '如果收货地址有误请联系客服更改',
+        })
+        .then(() => {
+            // on confirm
+            // this.setData({
+            //     lists: lists,
+            // })
+            // console.log(lists)
+            wx.navigateTo({
+              url: '/pages/Insured/Insured',
+            })
+        })
+        .catch(() => {
+            // on cancel
+        });
+    },
     /**
      * 生命周期函数--监听页面加载
      */

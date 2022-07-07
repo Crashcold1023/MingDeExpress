@@ -1,0 +1,15 @@
+<!--pages/tomyaddress/tomyaddress.wxml-->
+<view>
+    <view class="box">
+        <van-cell-group>
+            <van-field value="{{ username }}" required clearable label="Phone：" placeholder="Please fill in the recipient‘s phone" bind:click-icon="onClickIcon" />
+            <van-field value="{{ username }}" required clearable label="Address：" placeholder="Please fill in the address" bind:click-icon="onClickIcon" />
+            <van-field value="{{ username }}" required clearable label="City：" placeholder="Please fill in the city" bind:click-icon="onClickIcon" />
+            <van-field value="{{ username }}" required clearable label="PostCode：" placeholder="Please fill in the postcode" bind:click-icon="onClickIcon" />
+            <van-field value="{{ username }}" required clearable label="Country：" placeholder="Country：" bind:click-icon="onClickIcon" />
+
+        </van-cell-group>
+
+    </view>
+    
+</view>

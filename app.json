@@ -7,7 +7,18 @@
         "pages/expressdetail/expressdetail",
         "pages/carmoney/carmoney",
         "pages/address/address",
-        "pages/orderdetail/orderdetail"
+        "pages/orderdetail/orderdetail",
+        "pages/okorderdetail/okorderdetail",
+        "pages/waitorderdetail/waitorderdetail",
+        "pages/waitpayorderdetail/waitpayorderdetail",
+        "pages/Insured/Insured",
+        "pages/myexpress/myexpress",
+        "pages/myaddress/myaddress",
+        "pages/tomyaddress/tomyaddress"
+
+
+        
+
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -63,6 +74,11 @@
         "van-cell-group": "@vant/weapp/cell-group/index",
         "van-dialog": "@vant/weapp/dialog/index",
         "van-notice-bar": "@vant/weapp/notice-bar/index",
-        "van-field": "@vant/weapp/field/index"
+        "van-field": "@vant/weapp/field/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-switch": "@vant/weapp/switch/index",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-area": "@vant/weapp/area/index"
     }
 }

@@ -12,14 +12,30 @@
             <!-- <view>我的订单</view> -->
             <!-- <view>全部订单></view> -->
             <!-- <van-cell size="large" is-link title="全部订单" link-type="navigateTo" url="/pages/dashboard/index" /> -->
-            <van-cell size="large" title="我的订单"/>
+            <van-cell size="large" title="我的订单" />
             <van-cell size="large" title="我的订单" is-link />
         </view>
         <!-- <van-divider /> -->
         <view style="display: flex;justify-content: space-around;margin-top: 10px">
-            <view wx:for="{{orderstatus}}" wx:for-item="orders">
+            <!-- <view wx:for="{{orderstatus}}" wx:for-item="orders">
                 <image style="width: 27px;height: 28px;" src="{{orders.imageURL}}"></image>
                 <view>{{orders.title}}</view>
+            </view> -->
+            <view>
+                <image style="width: 27px;height: 28px;" src="/assets/icon/待付款.png"></image>
+                <view>待付款</view>
+            </view>
+            <view>
+                <image style="width: 27px;height: 28px;" src="/assets/icon/待发货.png"></image>
+                <view>待发货</view>
+            </view>
+            <view>
+                <image style="width: 27px;height: 28px;" src="/assets/icon/待收货.png"></image>
+                <view>待收货</view>
+            </view>
+            <view>
+                <image style="width: 27px;height: 28px;" src="/assets/icon/待评价 2.0.png"></image>
+                <view>待评价</view>
             </view>
         </view>
         <view>
@@ -29,7 +45,14 @@
                     <view style="color: rgba(16, 16, 16, 100);font-size: 20px;font-family: PingFangSC-regular;">{{orderinfo.title}}</view>
                     <view style="font-size: 20px;">{{orderinfo.jiantou}}</view>
                 </view> -->
-                <van-cell wx:for="{{orderinfo}}" wx:for-item="orderinfo" is-link title="{{orderinfo.title}}" link-type="navigateTo" url="/pages/dashboard/index" />
+                <!-- <van-cell wx:for="{{orderinfo}}" wx:for-item="orderinfo" is-link title="{{orderinfo.title}}" link-type="navigateTo" url="/pages/dashboard/index" /> -->
+                <van-cell is-link title="我的地址" link-type="navigateTo" url="/pages/address/address" />
+                <van-cell is-link title="我的优惠券" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="活动中心" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="客服中心" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="转运流程" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="转运须知" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="关于我们" link-type="navigateTo" url="/pages/dashboard/index" />
             </view>
         </view>
     </view>

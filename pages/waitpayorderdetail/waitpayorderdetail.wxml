@@ -1,0 +1,105 @@
+<!--pages/orderdetail/orderdetail.wxml-->
+<view>
+    <van-notice-bar left-icon="volume-o" scrollable text="客户您好 您的全部快递包裹已经到达明德转运仓库 请及时确认拣货打包!!!" />
+    <view class="orderress" style="margin-top: 20px;">
+        <view>
+            <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
+                <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">明德转运仓</view>
+                <view style="font-size: 16px;">13612362023</view>
+                <view style="margin-left: 38px;">深圳市龙岗区康桥花园2期24栋805室</view>
+            </view>
+            <van-divider />
+            <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
+                <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">KK数码</view>
+                <view style="font-size: 16px;">13612362023</view>
+                <view style="margin-left: 38px;">汕头市潮南区峡山镇鲤鱼门1103号KK数码</view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view class="orderress1">
+            <view style="    line-height: 38px; text-align: left; padding: 0 14px;">
+                <view>运费:<text>￥138.00</text></view>
+                <view>附加费:<text>￥0.00</text></view>
+                <view>称重重量:<text>5.6kg</text></view>
+                <view>分拣备注:<text style="color: saddlebrown;">已拆封分拣 统一归类</text></view>
+                <view>大宝贝猪:<text style="color: saddlebrown;">东西太多 打包价股</text></view>
+                <view>称重图片:
+                    <view style="display: flex; justify-content: space-between;">
+                        <image style="width: 93px;height: 82px;" src="/assets/index_img/轮播图.png"></image>
+                        <image style="width: 93px;height: 82px;" src="/assets/index_img/轮播图.png"></image>
+                        <image style="width: 93px;height: 82px;" src="/assets/index_img/轮播图.png"></image>
+                    </view>
+                </view>
+                <view>账单:
+                    <view class="orderzhanghdan" style="display: flex;justify-content: space-around; align-items: center;margin-bottom: 10px;">
+                        <image style="width: 96px;height: 93px;" src="/assets/index_img/轮播图.png"></image>
+                        <view style="text-align: left;">
+                            <view>属性:<text>中国美妆</text></view>
+                            <view>长宽高:<text>12*12*5 CM</text></view>
+                            <view>计费重量:<text>实际重量</text></view>
+                            <view>运费:<text>￥102.36</text></view>
+                            <!-- <view>下单时间:<text>2022-02-05 14:02:36</text></view> -->
+                        </view>
+                    </view>
+                    <view class="orderzhanghdan" style="display: flex;justify-content: space-around; align-items: center;margin-bottom: 10px;">
+                        <image style="width: 96px;height: 93px;" src="/assets/index_img/轮播图.png"></image>
+                        <view style="text-align: left;">
+                            <view>属性:<text>中国美妆</text></view>
+                            <view>长宽高:<text>12*12*5 CM</text></view>
+                            <view>计费重量:<text>实际重量</text></view>
+                            <view>运费:<text>￥102.36</text></view>
+                            <!-- <view>下单时间:<text>2022-02-05 14:02:36</text></view> -->
+                        </view>
+                    </view>
+                    <view class="orderzhanghdan" style="display: flex;justify-content: space-around; align-items: center;margin-bottom: 10px;">
+                        <image style="width: 96px;height: 93px;" src="/assets/index_img/轮播图.png"></image>
+                        <view style="text-align: left;">
+                            <view>属性:<text>中国美妆</text></view>
+                            <view>长宽高:<text>12*12*5 CM</text></view>
+                            <view>计费重量:<text>实际重量</text></view>
+                            <view>运费:<text>￥102.36</text></view>
+                            <!-- <view>下单时间:<text>2022-02-05 14:02:36</text></view> -->
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="ordercount">
+        <view style="color:red">
+            <text>Tip:快递全部到齐点击确认打包后 订单不可修改!</text>
+        </view>
+        <view>
+            <van-cell-group>
+                <van-field required="true" size="large" label="快递单号" placeholder="请输入" />
+                <van-field required="true" size="large" label="备注信息" placeholder="请输入" />
+            </van-cell-group>
+            <van-cell-group wx:for="{{lists}}" wx:key="index">
+                <van-field class='create-li' data-id="{{index}}" label="{{index+1}}" placeholder="请输入快递单号" bindinput='bindKeyInput'></van-field>
+            </van-cell-group>
+            <button class='add-li' bindtap='addList'>补充单号</button>
+            <button class='add-li' bindtap='delList'>删除单号</button>
+        </view>
+    </view>
+    <view class="orderstatus">
+        <view style="text-align: left; padding: 0 14px;">
+            <view>订单运号:<text>95545313138435135</text></view>
+            <view>转运路线:<text>中国 - 美国</text></view>
+            <view>预算渠道:<text>中国美妆</text></view>
+            <view>订单状态:<text style="color: saddlebrown;">已入库 待拣货</text></view>
+            <view>下单时间:<text>2022-02-05 14:02:36</text></view>
+        </view>
+    </view>
+    <view style="display: flex;margin-top: 10px;">
+        <button open-type="contact" style="width: 200px;background-color: #4c168e;color: #fff;">联系客服</button>
+        <button style="width: 200px;background-color: #db631e;color: #fff;" bindtap="pay">确认支付</button>
+    </view>
+    <!-- <van-dialog use-slot title="注意事项" show="{{ show }}" show-cancel-button confirm-button-open-type="confirm" bind:confirm="addList" bind:close="onClose"> -->
+    <!-- <view>请确认添加的快递单号是否无误</view> -->
+    <!-- </van-dialog> -->
+    <van-dialog id="van-dialog" />
+    <van-dialog id="van-dialog" />
+</view>
