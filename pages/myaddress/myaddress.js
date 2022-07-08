@@ -12,30 +12,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      /**
-       * 地址的数据结构
-       * id 
-       * name 收货人姓名
-       * mobile 电话号
-       * address 地址 省市县
-       * street 详细店址 详细到街道门牌号
-       * isDefault 默认选中
-       * checked 选中哪个地址
-       */
-      for(var i=0; i<3; i++){
-        var address = {};
-        address.id = "" + (1+i);
-        address.name = "郑" + (1+i);
-        address.mobile = "1361236202" + (1+i);
-        address.city = "汕头市峡山街道";
-        address.street = "鲤鱼门 11" + (1+i) + "号 KK数码";
-        address.isDefault = false;
-        address.checked = false;
-        if(i==0){
-          address.isDefault = true;
-        }
-        this.data.addressList.push(address);
-      }
+    //   for(var i=0; i<3; i++){
+    //     var address = {};
+    //     address.id = "" + (1+i);
+    //     address.name = "郑" + (1+i);
+    //     address.mobile = "1361236202" + (1+i);
+    //     address.city = "汕头市峡山街道";
+    //     address.street = "鲤鱼门 11" + (1+i) + "号 KK数码";
+    //     address.isDefault = false;
+    //     address.checked = false;
+    //     if(i==0){
+    //       address.isDefault = true;
+    //     }
+    //     this.data.addressList.push(address);
+    //   }
       this.setData({
         addressList: this.data.addressList
       })
@@ -51,24 +41,24 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    // onShow: function () {
-    //   var addressList = wx.getStorageSync('addressList');
-    //   var address = null; // 获取默认选中地址
-    //   if(addressList && addressList.length>0){
-    //     addressList.forEach(function(v, index){
-    //       if(v.isDefault){
-    //         address = addressList.splice(index, 1)[0];
-    //       }
-    //     })
-    //     this.setData({
-    //       addressList: [address, ...addressList]
-    //     })
-    //   } else {
-    //     this.setData({
-    //       addressList: []
-    //     })
-    //   }
-    // },
+    onShow: function () {
+      var addressList = wx.getStorageSync('addressList');
+      var address = null; // 获取默认选中地址
+      if(addressList && addressList.length>0){
+        addressList.forEach(function(v, index){
+          if(v.isDefault){
+            address = addressList.splice(index, 1)[0];
+          }
+        })
+        this.setData({
+          addressList: [address, ...addressList]
+        })
+      } else {
+        this.setData({
+          addressList: []
+        })
+      }
+    },
   
     /**
      * 生命周期函数--监听页面隐藏
@@ -128,13 +118,15 @@ Page({
       })
     },
     // 编辑点击事件
-    // clickEdit(e){
-    //   var index = e.currentTarget.dataset.index;
-    //   var address = this.data.addressList[index];
-    //   wx.navigateTo({
-    //     url: '../address/edit?address=' + JSON.stringify(address),
-    //   })
-    // },
+    clickEdit(e){
+      var index = e.currentTarget.dataset.index;
+      console.log(index)
+      var address = this.data.addressList[index];
+      wx.navigateTo({
+        url: '../tomyaddress/tomyaddress?address=' + JSON.stringify(address),
+      })
+
+    },
     // 添加点击事件
     clickAdd(e){
       wx.navigateTo({

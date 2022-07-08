@@ -30,7 +30,12 @@ Page({
             wx.showModal({
                 title: '风险告知书',
                 content: '系统没有检测到您购买保险 注意保险单的提示 请知悉',
-            });
+            }).then(() => {
+                // on close
+                wx.navigateTo({
+                  url: '',
+                })
+              });
         }
 
     },

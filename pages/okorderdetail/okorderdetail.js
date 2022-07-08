@@ -7,42 +7,38 @@ Page({
      */
     data: {
         show: false,
-        lists: [{}, {}],
+        lists: [],
+        num:''
         // orderstatus:[
 
         // ]
     },
-    addList: function () {
-        var lists = this.data.lists;
-        var newData = {};
-        lists.push(newData); //实质是添加lists数组内容，使for循环多一次
-        // this.setData({
-        //     lists: lists,
-        // })
-        this.setData({
-            show: true
-        })
-        Dialog.confirm({
-                title: '是否补充快递单号',
-                message: '补充后请确认单号无误',
+    add:function(event){
+        this.addList(event.detail.value,false)
+    },
+    addList: function (detail,judgment) {
+        console.log(judgment)
+        if(judgment == false){
+      this.setData({
+        lists:Array(Number(detail)).fill({})
+      })
+        }else{
+            this.setData({
+                show: true
             })
-            .then(() => {
-                // on confirm
-                this.setData({
-                    lists: lists,
-                    
+            Dialog.confirm({
+                    title: '是否补充快递单号',
+                    message: '补充后请确认单号无误',
                 })
-                console.log(lists)
-            })
-            .catch(() => {
-                // on cancel
-            });
-
-        // wx.showToast({
-        //   title: '请确认单号无误',
-        //   duration:3000,
-        //   icon:"error"
-        // })
+                .then(() => {
+                    this.setData({
+                        lists:Array(Number(this.data.lists.length + 1)).fill({}),
+                        num:this.data.lists.length +1
+                      })
+                })
+                .catch(() => {
+                });
+        }
     },
     close() {
         Dialog.confirm({
@@ -50,7 +46,7 @@ Page({
             message: '确认订单后 订单将会进入拣货状态 快递包裹会进行打包称重',
         })
         .then(() => {
-            // on confirm
+        // on confirm
         //    wx.navigateBack({
         //        delta:1
         //    })
@@ -67,6 +63,7 @@ Page({
         lists.pop(); //实质是删除lists数组内容，使for循环少一次
         this.setData({
             lists: lists,
+            num:lists.length 
         })
     },
 

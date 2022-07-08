@@ -13,11 +13,18 @@
         "pages/okorderdetail/okorderdetail",
         "pages/waitorderdetail/waitorderdetail",
         "pages/waitpayorderdetail/waitpayorderdetail",
+        "pages/payorderdetail/payorderdetail",
         "pages/Insured/Insured",
         "pages/myexpress/myexpress",
         "pages/myaddress/myaddress",
         "pages/tomyaddress/tomyaddress",
-        "pages/tomyaddlist/tomyaddlist"
+        "pages/tomyaddlist/tomyaddlist",
+        "pages/mycoupon/mycoupon",
+        "pages/myzhuanyun/myzhuanyun",
+        "pages/myxuzhi/myxuzhi",
+        "pages/paysucces/paysucces"
+
+
         
 
 
@@ -83,6 +90,8 @@
         "van-collapse-item": "@vant/weapp/collapse-item/index",
         "van-switch": "@vant/weapp/switch/index",
         "van-empty": "@vant/weapp/empty/index",
-        "van-area": "@vant/weapp/area/index"
+        "van-area": "@vant/weapp/area/index",
+        "van-action-sheet": "@vant/weapp/action-sheet/index",
+        "van-submit-bar": "@vant/weapp/submit-bar/index"
     }
 }

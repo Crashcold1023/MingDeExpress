@@ -95,7 +95,7 @@
     </view>
     <view style="display: flex;margin-top: 10px;">
         <button open-type="contact" style="width: 200px;background-color: #4c168e;color: #fff;">联系客服</button>
-        <button style="width: 200px;background-color: #db631e;color: #fff;" bindtap="pay">确认支付</button>
+        <button style="width: 200px;background-color: #db631e;color: #fff;" bindtap="pay">下一步</button>
     </view>
     <!-- <van-dialog use-slot title="注意事项" show="{{ show }}" show-cancel-button confirm-button-open-type="confirm" bind:confirm="addList" bind:close="onClose"> -->
     <!-- <view>请确认添加的快递单号是否无误</view> -->

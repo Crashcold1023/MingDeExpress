@@ -24,9 +24,10 @@
         </view>
         <view>
             <van-cell-group>
-                <van-field required="true" size="large" label="快递单号" placeholder="请输入" />
+                <van-field value="{{num}}"  bind:blur="add" required="true" size="large" label="快递数量" placeholder="请输入"  />
                 <van-field required="true" size="large" label="备注信息" placeholder="请输入" />
             </van-cell-group>
+            
             <van-cell-group wx:for="{{lists}}" wx:key="index">
                 <van-field class='create-li' data-id="{{index}}" label="{{index+1}}" placeholder="请输入快递单号" bindinput='bindKeyInput'></van-field>
             </van-cell-group>
@@ -45,10 +46,10 @@
     </view>
     <view style="display: flex;margin-top: 10px;">
         <button open-type="contact" style="width: 200px;background-color: skyblue;color: #fff;">联系客服</button>
-        <button type="primary" style="width: 200px;" bindtap="close" >确认打包</button>
+        <button type="primary" style="width: 200px;" bindtap="close">确认打包</button>
     </view>
     <!-- <van-dialog use-slot title="注意事项" show="{{ show }}" show-cancel-button confirm-button-open-type="confirm" bind:confirm="addList" bind:close="onClose"> -->
-        <!-- <view>请确认添加的快递单号是否无误</view> -->
+    <!-- <view>请确认添加的快递单号是否无误</view> -->
     <!-- </van-dialog> -->
     <van-dialog id="van-dialog" />
     <van-dialog id="van-dialog" />

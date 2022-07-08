@@ -1,6 +1,5 @@
 <!--pages/my/my.wxml-->
 <view class="bigbox">
-
     <view class="smallbox" style="margin-bottom: 10px;">
         <view class="header">
         <van-image style="margin-top:20px;" round width="5rem" height="5rem" src="{{userInfo.avatarUrl}}" />
@@ -40,7 +39,7 @@
             </view>
         </view>
         <view>
-            <view class="smallbox3" style="margin-top: 18px;margin-bottom: 18px; text-align: left;">
+            <view class="smallbox3" style="margin-top: 32px;text-align: left;">
                 <!-- <view wx:for="{{orderinfo}}" wx:for-item="orderinfo"
                  style="margin-top:20px;padding:0 20px; display: flex;justify-content: space-between;">
                     <view style="color: rgba(16, 16, 16, 100);font-size: 20px;font-family: PingFangSC-regular;">{{orderinfo.title}}</view>
@@ -48,11 +47,11 @@
                 </view> -->
                 <!-- <van-cell wx:for="{{orderinfo}}" wx:for-item="orderinfo" is-link title="{{orderinfo.title}}" link-type="navigateTo" url="/pages/dashboard/index" /> -->
                 <van-cell is-link title="我的地址" link-type="navigateTo" url="/pages/myaddress/myaddress" />
-                <van-cell is-link title="我的优惠券" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="我的优惠券" link-type="navigateTo" url="/pages/mycoupon/mycoupon" />
                 <van-cell is-link title="活动中心" link-type="navigateTo" url="/pages/dashboard/index" />
                 <van-cell is-link title="客服中心" link-type="navigateTo" url="/pages/dashboard/index" />
-                <van-cell is-link title="转运流程" link-type="navigateTo" url="/pages/dashboard/index" />
-                <van-cell is-link title="转运须知" link-type="navigateTo" url="/pages/dashboard/index" />
+                <van-cell is-link title="转运流程" link-type="navigateTo" url="/pages/myzhuanyun/myzhuanyun" />
+                <van-cell is-link title="转运须知" link-type="navigateTo" url="/pages/myxuzhi/myxuzhi" />
                 <van-cell is-link title="关于我们" link-type="navigateTo" url="/pages/dashboard/index" />
             </view>
         </view>

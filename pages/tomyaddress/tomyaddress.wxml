@@ -1,41 +1,41 @@
-
 <!-- 地址创建和编辑页面 -->
-<view class="weui-cells content">
-    <view class="weui-cell">
-        <view class="weui-label label-txt">姓名</view>
-        <view class="weui-cell__bd">
-            <input class="weui-input input-txt" placeholder-class="input-placeholder" placeholder="收货人姓名" value="{{address.name}}" bindinput="inputName" />
+<view class="box">
+    <view class="namecontent" style="margin: 12px;">
+        <view class="name">Name:</view>
+        <view class="username">
+            <input placeholder-class="input-placeholder" placeholder="Please enter the recipient name" value="{{address.name}}" bindinput="inputName" />
         </view>
     </view>
-    <view class="weui-cell">
-        <view class="weui-label label-txt">手机号</view>
-        <view class="weui-cell__bd">
-            <input class="weui-input input-txt" placeholder-class="input-placeholder" placeholder="收货人手机号" value="{{address.mobile}}" bindinput="inputMobile" />
+    <view class="namecontent" style="margin: 12px;">
+        <view class="name">PhoneNum:</view>
+        <view class="username">
+            <input placeholder-class="input-placeholder" placeholder="Please enter the recipient's mobile number" value="{{address.mobile}}" bindinput="inputMobile" />
         </view>
     </view>
-    <view class="weui-cell">
-        <view class="weui-label label-txt">所在地址</view>
-        <view class="weui-cell__bd input-txt">
+    <view class="namecontent" style="margin: 12px;">
+        <view class="name">Location:</view>
+        <view class="username">
             <picker mode="region" bindchange="bindRegionChange">
-                <view class="{{address.city.length>0 ? '' : 'input-placeholder'}}">{{address.city.length>0 ? address.city : '选择收货地址'}}</view>
+                <view class="{{address.city.length>0 ? '' : 'input-placeholder'}}">{{address.city.length>0 ? address.city : 'select the shipping address'}}</view>
             </picker>
         </view>
-        <view class="weui-cell__ft" bindtap="clickLocation">
+        <!-- <view class="namecontent" bindtap="clickLocation">
             <image src="../../assets/xmall/address.png" style="width:36rpx;height:36rpx;"></image>
-        </view>
+        </view> -->
     </view>
-    <view class="weui-cell">
-        <view class="weui-label label-txt">详细地址</view>
-        <view class="weui-cell__bd">
-            <input class="weui-input input-txt" placeholder-class="input-placeholder" placeholder="需要具体到街道、门牌号等" value="{{address.street}}" bindinput="inputStreet" />
+    <view class="namecontent" style="margin: 12px;">
+        <view class="name">ressDetaile:</view>
+        <view class="username">
+            <input placeholder-class="input-placeholder" placeholder="Please fill in the detailed address" value="{{address.street}}" bindinput="inputStreet" />
         </view>
     </view>
 </view>
-<view class="check-default" bindtap="clickDefault" data-index="{{index}}">
-    <icon type="{{address.isDefault?'success':'circle'}}" size="15"></icon>
-    设为默认地址
-</view>
-
-<view class="add-address" bindtap="clickAdd">
-    <view class="txt">保存并使用</view>
+<view bindtap="clickDefault" data-index="{{index}}" style="display: flex;justify-content: space-between;padding: 0 20px">
+    <view style="display: flex;justify-content: start;">
+        <icon type="{{address.isDefault?'success':'circle'}}"></icon>
+        <view style="font-size: 15px;font-weight: 800;">
+            设为默认地址
+        </view>
+    </view>
+    <view style="font-size: 18px;font-weight: 800; color: skyblue;" bindtap="clickAdd">确认使用</view>
 </view>

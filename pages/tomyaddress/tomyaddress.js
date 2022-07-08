@@ -1,5 +1,4 @@
-// pages/address/edit.js
-var that
+
 Page({
 
     /**
@@ -21,11 +20,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-        that = this;
-        console.log(options)
+    onLoad: function ({address}) {
+        let obj = JSON.parse(address)
         this.setData({
-            address: JSON.parse(options.address)
+            address:obj
         })
     },
 
