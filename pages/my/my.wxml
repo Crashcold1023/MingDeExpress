@@ -1,10 +1,14 @@
 <!--pages/my/my.wxml-->
 <view class="bigbox">
+    <!-- <view wx:if="{{userInfo === ''}}">
+        <button type="warn" class="loginBtn" bindtap="loginBtn">微信一键登录</button>
+    </view> -->
     <view class="smallbox" style="margin-bottom: 10px;">
         <view class="header">
-        <van-image style="margin-top:20px;" round width="5rem" height="5rem" src="{{userInfo.avatarUrl}}" />
+            <!-- <button type="default" bindtap="login">gotodelogin</button> -->
+            <van-image style="margin-top:20px;" round width="5rem" height="5rem" src="{{avatarUrl}}" />
         </view>
-        <view class="username" style="text-align: center;">{{userInfo.nickName}}</view>
+        <view class="username" style="text-align: center;">{{nickName}}</view>
         <view class="username" style="text-align: center;">编码:PT1023</view>
     </view>
     <view class="smallbox2">

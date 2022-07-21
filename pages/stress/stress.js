@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        content:''
     },
 
     oklook(){
@@ -18,7 +18,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        wx.request({
+          url: 'http://103.24.177.147:8084/api/content/getKnow',
+          method:'GET',
+          success: (res) => {
+            const that = this;
+            // console.log(res.data.data.content)
+            that.setData({ content:res.data.data.content })
+        }
+        })
     },
 
     /**

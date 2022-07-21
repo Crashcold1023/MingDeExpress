@@ -1,4 +1,5 @@
 // pages/my/my.js
+let {getqudao} = require('../../api/order.js')
 Page({
     /**
      * 页面的初始数据
@@ -6,9 +7,7 @@ Page({
     data: {
         getlunbo: [],
         show: false,
-        popup1text1: [
-                "普通货物","普通货物","电子产品","特色美食","中国美妆","广东ESM"
-        ]
+        popup1text1: []
     },
     // 获取萝卜兔数据
     getSwiperList() {
@@ -35,7 +34,8 @@ Page({
     // },
 
     popup1: function (e) {
-        console.log(e)
+        console.log(e.currentTarget.dataset.index)
+        wx.setStorageSync('qudaoId', e.currentTarget.dataset.index)
         this.setData({
             colorIndex: e.currentTarget.dataset.index
         });
@@ -46,10 +46,16 @@ Page({
     //     });
     // },
 
-    showPopup: function () {
+    async showPopup(e) {
         this.setData({
             show: true
         });
+        let result = await getqudao()
+        // console.log(result.data[0].id);
+        this.setData({
+            popup1text1:result.data
+        })
+        // console.log(this.data.popup1text1,'hsahfasg');
     },
     // onClose() {
     //     this.setData({

@@ -1,41 +1,54 @@
 <!-- 地址创建和编辑页面 -->
-<view class="box">
-    <view class="namecontent" style="margin: 12px;">
-        <view class="name">Name:</view>
-        <view class="username">
-            <input placeholder-class="input-placeholder" placeholder="Please enter the recipient name" value="{{address.name}}" bindinput="inputName" />
+<form bindsubmit="submit">
+    <view class="box">
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">Name:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人姓名" value="{{name}}" bindinput="inputName" />
+            </view>
+        </view>
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">PhoneNum:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人手机号码" value="{{phone}}" bindinput="inputMobile" />
+            </view>
+        </view>
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">city:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人地址" value="{{city}}" bindinput="bindcity" />
+            </view>
+        </view>
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">Area:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人地址" value="{{area}}" bindinput="bindRegionChange" />
+            </view>
+        </view>
+
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">Code:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人地址邮编" value="{{code}}" bindinput="inputStreet" />
+            </view>
+        </view>
+        <view class="namecontent" style="margin: 12px;">
+            <view class="name">country:</view>
+            <view class="username">
+                <input placeholder-class="input-placeholder" placeholder="请输入收件人国家" value="{{country}}" bindinput="inputCountry" />
+            </view>
         </view>
     </view>
-    <view class="namecontent" style="margin: 12px;">
-        <view class="name">PhoneNum:</view>
-        <view class="username">
-            <input placeholder-class="input-placeholder" placeholder="Please enter the recipient's mobile number" value="{{address.mobile}}" bindinput="inputMobile" />
-        </view>
-    </view>
-    <view class="namecontent" style="margin: 12px;">
-        <view class="name">Location:</view>
-        <view class="username">
-            <picker mode="region" bindchange="bindRegionChange">
-                <view class="{{address.city.length>0 ? '' : 'input-placeholder'}}">{{address.city.length>0 ? address.city : 'select the shipping address'}}</view>
-            </picker>
-        </view>
-        <!-- <view class="namecontent" bindtap="clickLocation">
-            <image src="../../assets/xmall/address.png" style="width:36rpx;height:36rpx;"></image>
-        </view> -->
-    </view>
-    <view class="namecontent" style="margin: 12px;">
-        <view class="name">ressDetaile:</view>
-        <view class="username">
-            <input placeholder-class="input-placeholder" placeholder="Please fill in the detailed address" value="{{address.street}}" bindinput="inputStreet" />
-        </view>
-    </view>
-</view>
+    <button wx:if="{{showress}}" class="weui-btn" type="primary" form-type="showtime" bindtap="showtime">更新地址
+    </button>
+    <button wx:if="{{yuyu}}" class="weui-btn" type="primary" form-type="submit">添加地址</button>
+</form>
 <view bindtap="clickDefault" data-index="{{index}}" style="display: flex;justify-content: space-between;padding: 0 20px">
-    <view style="display: flex;justify-content: start;">
+    <!-- <view style="display: flex;justify-content: start;">
         <icon type="{{address.isDefault?'success':'circle'}}"></icon>
         <view style="font-size: 15px;font-weight: 800;">
             设为默认地址
         </view>
-    </view>
-    <view style="font-size: 18px;font-weight: 800; color: skyblue;" bindtap="clickAdd">确认使用</view>
+    </view> -->
+    <!-- <view style="font-size: 18px;font-weight: 800; color: skyblue;" bindtap="clickAdd">确认使用</view> -->
 </view>

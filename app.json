@@ -1,7 +1,9 @@
 {
+
     "pages": [
         "pages/index/index",
         "pages/copyress/copyress",
+        "pages/order123/order123",
         "pages/order/order",
         "pages/express/express",
         "pages/my/my",
@@ -18,18 +20,11 @@
         "pages/myexpress/myexpress",
         "pages/myaddress/myaddress",
         "pages/tomyaddress/tomyaddress",
-        "pages/tomyaddlist/tomyaddlist",
         "pages/mycoupon/mycoupon",
         "pages/myzhuanyun/myzhuanyun",
         "pages/myxuzhi/myxuzhi",
-        "pages/paysucces/paysucces"
-
-
-        
-
-
-        
-
+        "pages/paysucces/paysucces",
+        "pages/user/user"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -92,6 +87,12 @@
         "van-empty": "@vant/weapp/empty/index",
         "van-area": "@vant/weapp/area/index",
         "van-action-sheet": "@vant/weapp/action-sheet/index",
-        "van-submit-bar": "@vant/weapp/submit-bar/index"
+        "van-submit-bar": "@vant/weapp/submit-bar/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-tag": "@vant/weapp/tag/index"
+    },
+    "useExtendedLib": {
+        "weui": true
     }
 }

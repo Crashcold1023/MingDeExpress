@@ -25,15 +25,23 @@
             </view>
 
             <van-cell-group>
-                <van-field value="{{ username }}" required clearable label="Name:" placeholder="Please fill in the recipient‘s phone" bind:click-icon="onClickIcon" />
-                <van-field value="{{ username }}" required clearable label="Phone：" placeholder="Please fill in the address" bind:click-icon="onClickIcon" />
-                <van-field value="{{ username }}" required clearable label="Address：" placeholder="Please fill in the city" bind:click-icon="onClickIcon" />
-                <van-field value="{{ username }}" required clearable label="City：" placeholder="Please fill in the postcode" bind:click-icon="onClickIcon" />
-                <van-field value="{{ username }}" required clearable label="PostCode：" placeholder="Country：" bind:click-icon="onClickIcon" />
-
+                <van-field model:value="{{ name }}" required clearable label="Name:" placeholder="Please fill in the recipient‘s phone" bind:click-icon="onClickIcon" />
+                <van-field model:value="{{ phone }}" required clearable label="Phone：" placeholder="Please fill in the address" bind:click-icon="onClickIcon" />
+                <van-field model:value="{{ city }}" required clearable label="city:" placeholder="Please fill in the city" bind:click-icon="onClickIcon" />
+                <van-field model:value="{{ area }}" required clearable label="area:" placeholder="Please fill in the city" bind:click-icon="onClickIcon" />
+                <van-field model:value="{{ code }}" required clearable label="Code:" placeholder="Please fill in the Code" bind:click-icon="onClickIcon" />
+                <van-field model:value="{{ country }}" required clearable label="Country" placeholder="Please fill in the postcode" bind:click-icon="onClickIcon" />
+                <!-- <van-field value="{{ username }}" required clearable label="PostCode：" placeholder="Country：" bind:click-icon="onClickIcon" /> -->
             </van-cell-group>
 
+            <!-- <view class="address-item" wx:for="{{addressList}}">
+            <view class="item-top">{{item.name}} {{item.mobile}}</view>
+            <view class="item-content">{{item.city}} {{item.street}}</view>
+                </view> -->
         </view>
-        <button type="warn" style="margin-top: 20px;">立即转运</button>
+        <!-- <navigator url="/pages/okorderdetail/okorderdetail"> -->
+            <button bindtap="tookOrder" type="warn" style="margin-top: 20px;">立即转运</button>
+        <!-- </navigator> -->
+        
     </view>
 </view>

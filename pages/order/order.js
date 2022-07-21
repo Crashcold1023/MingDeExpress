@@ -1,205 +1,130 @@
+// pages/order/order.ts
+const app = getApp()
 Page({
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        currtab: 1,
-        swipertab: [{
-                id: 0,
-                name: '全部'
-            },
-            {
-                id: 1,
-                name: '待付款'
-            },
-            {
-                id: 2,
-                name: '已付款'
-            },
-            {
-                id: 3,
-                name: "已完成"
-            },
-            // {
-            //     id: 4,
-            //     name: '待评价'
-            // }
-        ]
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    plain:'../../assets/index_img/fly.svg',
+    orderstatus:app.globalData.orderState,
+    more:'确认打包',
+    getmoney:'去支付',
+    write:'待填写',
+    news:'物流消息',
+    what:'详情',
+    overs:'订单详情',
+    much:[
+    ]
+  },
+//最后完成
+  overs(e){
+    let id = e.currentTarget.dataset.id.id
+    wx.navigateTo({
+      url:`../waitpayorderdetail/waitpayorderdetail?id=` + id
+    })
+  },
 
-
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /*选项卡点击切换
-     */
-    tabSwitch: function (e) {
-        var that = this
-        if (this.data.currtab === e.target.dataset.current) {
-            return false
-        } else {
-            that.setData({
-                currtab: e.target.dataset.current
-            })
-        }
-    },
-
-    tabChange: function (e) {
-        this.setData({
-            currtab: e.detail.current
-        })
-        this.orderShow()
-    },
-    orderShow: function () {
-        let _this = this;
-        switch (this.data.currtab) {
-            case 0:
-                _this.alreadyShow()
-                break
-            case 1:
-                _this.waitPayShow()
-                break
-            case 2:
-                _this.lostShow()
-            case 3:
-                _this.waitShow()
-                // case 4:
-                //     _this.evaluatedShow()
-        }
-    },
-    alreadyShow: function () {
-        this.setData({
-            alreadyOrder: [{
-                name: "订单号:201525561687865654866",
-                state: "交易成功",
-                city: "中国",
-                image: "/assets/index_img/fly.svg",
-                tocity: "米国",
-            }, {
-                name: "订单号:201525561687865654866",
-                state: "交易成功",
-                city: "中国",
-                image: "/assets/index_img/fly.svg",
-                tocity: "米国",
-            }]
-        })
-    },
-
-    waitPayShow: function () {
-        this.setData({
-            waitPayOrder: [{
-                    name: "订单号:201525561687865654866",
-                    state: "待付款",
-                    city: "中国",
-                    image: "/assets/index_img/fly.svg",
-                    tocity: "米国",
-                },
-            ],
-        })
-    },
-
-    lostShow: function () {
-        this.setData({
-            lostOrder: [{
-                name: "订单号:201525561687865654866",
-                state: "已付款",
-                city: "中国",
-                image: "/assets/index_img/fly.svg",
-                tocity: "米国",
-            }],
-        })
-    },
-    waitShow: function () {
-        this.setData({
-            lostOrder: [{
-                name: "订单号:201525561687865654866",
-                state: "已完成",
-                city: "中国",
-                image: "/assets/index_img/fly.svg",
-                tocity: "米国",
-            }],
-        })
-    },
-    // evaluatedShow: function () {
-    //     this.setData({
-    //         lostOrder: [{
-    //             name: "跃动体育运动俱乐部(圆明园店)",
-    //             state: "待评价",
-    //             time: "2018-10-4 10:00-12:00",
-    //             status: "待评价",
-    //             url: "../../../img/shangpin.jpg",
-    //             money: "122"
-    //         }],
-    //     })
-    // },
-    warn(){
-        wx.showToast({
-          title: '提醒成功',
-          success:'success'
-        })
-    },
-    getOrderDetails(){
-        wx.navigateTo({
-          url: '/pages/orderdetail/orderdetail',
-        })
-    },
-    gopay(){
-        wx.navigateTo({
-            url: '/pages/okorderdetail/okorderdetail',
-          })
-    },
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
+  details(e){
+    console.log(e.currentTarget.dataset.id.id);
+    wx.navigateTo({
+      url:`../orderdetail/orderdetail?jojo=`+e.currentTarget.dataset.id.id
+    })
+  },
+  
+  butt(e){
+   console.log(e.currentTarget.dataset.id.id);
+    wx.navigateTo({
+      url:`../okorderdetail/okorderdetail?jojo=`+e.currentTarget.dataset.id.id
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(e) {
+  //  const imd = wx.getStorageSync('imd')
+  //   console.log(imd);
     
-    },
+    wx.request({
+      url:'http://103.24.177.147:8084//api/order/get',
+      method:'GET',
+      data:{
+          id: wx.getStorageSync('imd')
+      },
+      success:(res)=>{
+        // console.log(res.data.data.paymentStatus);
+        
+        // console.log(res.data.status,'res数据');
+        
+      }
+    })
+  this.showtime()
+  },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
+  showtime(){
+    wx.request({
+      url:'http://103.24.177.147:8084//api/order/page',
+      method:'GET',
+      data:{
+        memberId:wx.getStorageSync('id'),
+        page:'1',
+        limit:'50'
+      },
+      success:(res)=>{
+        console.log(res.data.data);
+        this.setData({
+          much:res.data.data
+        })
+      }
+    })
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
+  },
 
-    },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
+  },
 
-    }
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {
+
+  }
 })

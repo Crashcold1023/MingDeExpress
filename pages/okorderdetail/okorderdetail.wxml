@@ -5,16 +5,19 @@
         <view>
             <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
                 <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
-                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">明德转运仓</view>
-                <view style="font-size: 16px;">13612362023</view>
-                <view style="margin-left: 38px;">深圳市龙岗区康桥花园2期24栋805室</view>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">{{detaildList.shelfer}}</view>
+                <view style="font-size: 16px;">{{detaildList.shelfPhone}}</view>
+                <view style="margin-left: 38px;">{{detaildList.shelfAddress}}</view>
             </view>
             <van-divider />
             <view style="display: flex;flex-wrap:wrap;margin: 15px 20px;">
                 <image style="margin-top: 16px;width: 20px;height: 20px;margin-right: 16px;font-family: PingFangSC-regular;font-weight:bolder" src="/assets/icon/地址.png"></image>
-                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">KK数码</view>
-                <view style="font-size: 16px;">13612362023</view>
-                <view style="margin-left: 38px;">汕头市潮南区峡山镇鲤鱼门1103号KK数码</view>
+                <view style="font-size: 16px;font-weight:bolder;margin-right: 10%">{{detaildList.recipient}}</view>
+                <view style="font-size: 16px;">{{detaildList.recipientPhone}}</view>
+                <view style="margin-left: 38px;">{{detaildList.recipientCountry}}
+                    {{detaildList.recipientCity}}
+                    {{detaildList.recipientAddress}}
+                </view>
             </view>
         </view>
     </view>
@@ -24,12 +27,11 @@
         </view>
         <view>
             <van-cell-group>
-                <van-field value="{{num}}"  bind:blur="add" required="true" size="large" label="快递数量" placeholder="请输入"  />
+                <van-field value="{{num}}" bind:blur="add" required="true" size="large" label="快递数量" placeholder="请输入" />
                 <van-field required="true" size="large" label="备注信息" placeholder="请输入" />
             </van-cell-group>
-            
             <van-cell-group wx:for="{{lists}}" wx:key="index">
-                <van-field class='create-li' data-id="{{index}}" label="{{index+1}}" placeholder="请输入快递单号" bindinput='bindKeyInput'></van-field>
+                <van-field bind:blur="getinput" class='create-li' data-id="{{index}}" label="{{index+1}}" placeholder="请输入快递单号" bindinput='bindKeyInput'></van-field>
             </van-cell-group>
             <button class='add-li' bindtap='addList'>补充单号</button>
             <button class='add-li' bindtap='delList'>删除单号</button>
@@ -37,11 +39,11 @@
     </view>
     <view class="orderstatus">
         <view style="text-align: left; padding: 0 14px;">
-            <view>订单运号:<text>95545313138435135</text></view>
+            <view>订单运号:<text>{{detaildList.orderNo}}</text></view>
             <view>转运路线:<text>中国 - 美国</text></view>
-            <view>预算渠道:<text>中国美妆</text></view>
-            <view>订单状态:<text style="color: saddlebrown;">待入仓</text></view>
-            <view>下单时间:<text>2022-02-05 14:02:36</text></view>
+            <view>预算渠道:<text>{{goods[detaildList.orderType-1].name}}</text></view>
+            <view>订单状态:<text style="color: saddlebrown;">{{statuss[detaildList.paymentStatus].name}}</text></view>
+            <view>下单时间:<text>{{detaildList.orderDate}}</text></view>
         </view>
     </view>
     <view style="display: flex;margin-top: 10px;">

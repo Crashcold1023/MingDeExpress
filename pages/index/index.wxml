@@ -80,9 +80,9 @@
                 <!-- <view wx:for="{{popup1text1}}" wx:for-item="popup1text1" class="popupbox" data-index='{{index}}' style="margin-top: 10px;">
                     <view class="popup1text1" bindtap="popup1">{{popup1text1}}</view>
                 </view> -->
-                <button class="btn" wx:for="{{popup1text1}}" data-index='{{index}}' bindtap="popup1" 
-                style="{{index === colorIndex ? 'background:#22272e;color:#fff;' : 'background:#fff;color:#867575'}}">
-                    {{item}}
+                <button class="btn" wx:for="{{popup1text1}}" data-index='{{index+1}}' bindtap="popup1" 
+                style="{{index+1 === colorIndex ? 'background:#22272e;color:#fff;' : 'background:#fff;color:#867575'}}">
+                    {{item.name}}
                 </button>
             </view>
         </view>

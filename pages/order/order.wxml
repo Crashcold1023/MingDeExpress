@@ -1,125 +1,140 @@
-<!--pages/order/order.wxml-->
 
-<!-- <van-tabs active="{{ active }}" bind:change="onChange">
-  <van-tab title="全部">全部</van-tab>
-  <van-tab title="待支付">待支付</van-tab>
-  <van-tab title="已支付">已支付</van-tab>
-  <van-tab title="已完成">已完成</van-tab>
-</van-tabs> -->
-<view class="possess-layout all-layout">
-    <view class="main">
-        <view class="swiper">
-            <view class="swiper-tab">
-                <block wx:for="{{swipertab}}" wx:key="index">
-                    <view class="swiper-tab-list {{currtab==item.id?'on':''}}" data-current="{{item.id}}" bindtap="tabSwitch">{{item.name}}</view>
-                </block>
-            </view>
-        </view>
-    </view>
-</view>
-<swiper current="{{currtab}}" class="swiper-box" duration="300" bindchange="tabChange">
-    <!-- 全部 S -->
-    <swiper-item>
-        <scroll-view class="hot-box" scroll-y="true" bindtap="alreadyShow">
-        <view class="orderboxss">
-            <view class="orderDetails" wx:for="{{alreadyOrder}}" wx:key="index" >
-                <view class="orderListTitle">
-                    <text class="userName">{{item.name}}</text>
-                    <text class="orderStatus">{{item.state}}</text>
-                </view>
-                <view class="orderListDetails">
-                    <view class="productInfo">
-                        <view class="productTitle">{{item.city}}</view>
+<van-tabs sticky title-active-color="#99CCFF">
+  <van-tab title="全部">
+  <view wx:for="{{much}}" wx:key="id">
+  <view class="mo">
+  <!-- 订单号 -->
+  <view class="number">
+  <text class="nums">订单号：</text>
+  <text class="num">{{item.orderNo}}</text>
+  <text class="fuzhi">复制</text>
+  </view>
+  <!-- 国家 -->
+  <view class="country">
+  <view class="city">{{item.provenance}}</view>
+  <view class="phone">
+  <image class="hone" src="{{plain}}"></image>
+  <view class="run">{{orderstatus[item.orderStatus].message}}</view>
+  <!-- <view>{{item.paymentStatus}}</view> -->
+  </view>
+  <view class="city">{{item.destination}}</view>
+  </view>
+  <!-- 打包和详情 -->
+  <view class="see">
+  <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.orderStatus == 0 || item.orderStatus == 1 }}">
+  {{write}}
+  </view>
+  <view class="know" data-id="{{item}}"  bindtap="overs" wx:if="{{item.orderStatus == 4}}">
+  {{getmoney}}
+  </view>
+  <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.orderStatus == 3|| item.orderStatus == 2}}">
+  {{more}}
+  
+  </view>
+  <view class="knows" data-id="{{item}}" wx:if="{{item.orderStatus == 0 ||item.orderStatus == 1 ||item.orderStatus == 2 ||item.orderStatus == 3}}"  bindtap="details">{{what}}</view>
+  <view class="knows" data-id="{{item}}" wx:if="{{item.orderStatus == 4 ||item.orderStatus == 5 ||item.orderStatus == 6 }}" bindtap="overs">{{overs}}</view>
+  </view>
+  </view>
+  </view>
+  </van-tab>
 
-                        <image src="{{item.image}}"></image>
-                        <view class="productPrice">{{item.tocity}}</view>
-                    </view>
-                </view>
-                <!-- <view class="productCount">
-                    <view>
-                        <text>合计：￥{{item.money}}</text>
-                    </view>
-                </view> -->
-            </view>
-        </view>
-        </scroll-view>
-    </swiper-item>
-    <!-- 待付款 -->
-    <swiper-item>
-        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="waitPayShow"> -->
-            <view class="orderDetails" wx:for="{{waitPayOrder}}" wx:key="index">
-                <view class="orderListTitle">
-                    <text class="userName">{{item.name}}</text>
-                    <text class="orderStatus">{{item.state}}</text>
-                </view>
-                <view class="orderListDetails">
-
-                    <view class="productInfo">
-                        <view class="productTitle">{{item.city}}</view>
-
-                        <image class="flytext3" src="{{item.image}}"></image>
-                        <view class="productPrice">{{item.tocity}}</view>
-                    </view>
-                </view>
-                <view class="productCount">
-                    <view class="remind-btn" bindtap="gopay">去付款</view>
-                </view>
-                <!-- <view class="productCount">
-                    <view class="payment-btn">付款</view>
-                    <view>
-                        <text>合计：￥{{item.money}}</text>
-                    </view>
-                </view> -->
-            </view>
-        <!-- </scroll-view> -->
-    </swiper-item>
-    <!-- 已付款 -->
-    <swiper-item>
-        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="lostShow"> -->
-            <view class="orderDetails" wx:for="{{lostOrder}}" wx:key="index">
-                <view class="orderListTitle">
-                    <text class="userName">{{item.name}}</text>
-                    <text class="orderStatus">{{item.state}}</text>
-                </view>
-                <view class="orderListDetails">
-
-                    <view class="productInfo">
-                        <view class="productTitle">{{item.city}}</view>
-
-                        <image class="flytext3" src="{{item.image}}"></image>
-                        <view class="productPrice">{{item.tocity}}</view>
-                    </view>
-                </view>
-                <view class="productCount">
-                    <view class="remind-btn" bindtap="warn">提醒发货</view>
-                </view>
-                <view class="productCount">
-                    <view class="remind-btn" bindtap="getOrderDetails">详情</view>
-                </view>
-            </view>
-        <!-- </scroll-view> -->
-    </swiper-item>
-    <!--已完成 -->
-    <swiper-item>
-        <!-- <scroll-view class="hot-box" scroll-y="true" bindtap="waitShow"> -->
-            <view class="orderDetails" wx:for="{{lostOrder}}" wx:key="index" >
-                <view class="orderListTitle">
-                    <text class="userName">{{item.name}}</text>
-                    <text class="orderStatus">{{item.state}}</text>
-                </view>
-                <view class="orderListDetails">
-                    <view class="productInfo">
-                        <view class="productTitle">{{item.city}}</view>
-                        <image class="flytext3" src="{{item.image}}"></image>
-                        <view class="productPrice">{{item.tocity}}</view>
-                    </view>
-                </view>
-                <view class="productCount">
-                    <view class="remind-btn">确认收货</view>
-                </view>
-            </view>
-        <!-- </scroll-view> -->
-    </swiper-item>
-    <!--已完成 E -->
-
-</swiper>
+  <!-- 待支付 -->
+  <van-tab title="待支付">
+  
+    <view wx:for="{{much}}" wx:key="id" wx:if="{{item.paymentStatus == 0}}">
+  <view class="mo">
+  <!-- 订单号 -->
+  <view class="number">
+  <text class="nums">订单号：</text>
+  <text class="num">{{item.orderNo}}</text>
+  <text class="fuzhi">复制</text>
+  </view>
+  <!-- 国家 -->
+  <view class="country">
+  <view class="city">{{item.provenance}}</view>
+  <view class="phone">
+  <image class="hone" src="{{plain}}"></image>
+  <view class="run">{{orderstatus[item.orderStatus].message}}</view>
+  </view>
+  <view class="city">{{item.destination}}</view>
+  </view>
+  <!-- 打包和详情 -->
+  <view class="see">
+  <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.orderStatus == 0 || item.orderStatus == 1 }}">
+  {{write}}
+  </view>
+  <view class="know" data-id="{{item}}"  bindtap="overs" wx:if="{{item.orderStatus == 4}}">
+  {{getmoney}}
+  </view>
+  <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.orderStatus == 3 || item.orderStatus == 2}}">
+  {{more}}
+  </view>
+  <view class="knows" data-id="{{item}}" wx:if="{{item.orderStatus == 0 ||item.orderStatus == 1 ||item.orderStatus == 2 ||item.orderStatus == 3}}"  bindtap="details">{{what}}</view>
+  <view class="knows" data-id="{{item}}" wx:if="{{item.orderStatus == 4 ||item.orderStatus == 5 ||item.orderStatus == 6 }}" bindtap="details">{{overs}}</view>
+  </view>
+  </view>
+  </view>
+  
+  </van-tab>
+  <!-- 已支付 -->
+  <van-tab title="已支付">
+    <view wx:for="{{much}}" wx:key="id" wx:if="{{item.paymentStatus == 1 }}">
+  <view class="mo">
+  <!-- 订单号 -->
+  <view class="number">
+  <text class="nums">订单号：</text>
+  <text class="num">{{item.orderNo}}</text>
+  <text class="fuzhi">复制</text>
+  </view>
+  <!-- 国家 -->
+  <view class="country">
+  <view class="city">{{item.provenance}}</view>
+  <view class="phone">
+  <image class="hone" src="{{plain}}"></image>
+  <view class="run">{{orderstatus[item.orderStatus].message}}</view>
+  </view>
+  <view class="city">{{item.destination}}</view>
+  </view>
+  <!-- 打包和详情 -->
+  <view class="see">
+    <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.paymentStatus == 5 || item.paymentStatus == 6}}">
+  {{news}}
+  </view>
+  <view class="knows" data-id="{{item}}" bindtap="details">详情</view>
+  </view>
+  </view>
+  </view>
+  
+  </van-tab>
+  <!-- 已完成 -->
+  <van-tab title="已完成">
+  
+    <view wx:for="{{much}}" wx:key="id" wx:if="{{item.orderStatus == 5}}">
+  <view class="mo">
+  <!-- 订单号 -->
+  <view class="number">
+  <text class="nums">订单号：</text>
+  <text class="num">{{item.orderNo}}</text>
+  <text class="fuzhi">复制</text>
+  </view>
+  <!-- 国家 -->
+  <view class="country">
+  <view class="city">{{item.provenance}}</view>
+  <view class="phone">
+  <image class="hone" src="{{plain}}"></image>
+  <view class="run">{{orderstatus[item.orderStatus].message}}</view>
+  </view>
+  <view class="city">{{item.destination}}</view>
+  </view>
+  <!-- 打包和详情 -->
+  <view class="see">
+  <view class="know" data-id="{{item}}"  bindtap="butt" wx:if="{{item.show}}">
+  {{item.more}}
+  </view>
+  <view class="knows" data-id="{{item}}" bindtap="details">详情</view>
+  </view>
+  </view>
+  </view>
+  
+  </van-tab>
+</van-tabs>

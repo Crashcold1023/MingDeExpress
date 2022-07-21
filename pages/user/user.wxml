@@ -1,0 +1,2 @@
+<!--pages/user/user.wxml-->
+<button type="warn" class="loginBtn" bindtap="loginBtn">微信一键登录</button>

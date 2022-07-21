@@ -1,4 +1,7 @@
 // pages/Insured/Insured.js
+let {
+    getorderId
+} = require('../../api/order.js')
 Page({
 
     /**
@@ -33,7 +36,7 @@ Page({
             }).then(() => {
                 // on close
                 wx.navigateTo({
-                  url: '',
+                  url: '/pages/payorderdetail/payorderdetail',
                 })
               });
         }
@@ -42,8 +45,10 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
-
+    async onLoad(options) {
+        console.log(options);
+        let result =  await getorderId()
+        console.log(result);
     },
 
     /**

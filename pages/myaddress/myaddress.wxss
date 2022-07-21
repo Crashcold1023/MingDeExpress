@@ -1,13 +1,13 @@
 /* 没有地址布局 */
 .box{
     margin: 10px auto;
+    padding: 20px 0px 20px 0px;
     width: 347px;
     line-height: 20px;
     opacity: 0.85;
     background-color: rgba(255, 255, 255, 79);
     color: rgba(16, 16, 16, 100);
     font-size: 14px;
-    text-align: center;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);
     font-family: Arial;
     border: 1px solid rgba(255, 255, 255, 100);
@@ -63,30 +63,32 @@
   .address-list {
     display: flex;
     flex-direction: column;
-    margin-bottom: 95rpx;
   }
   .address-item {
+    text-align: left;
     display: flex;
     flex-direction: column;
     margin: 6rpx 20rpx;
-    padding: 20rpx 20rpx 10rpx 20rpx;
+    padding: 20rpx 20rpx 20rpx 20rpx;
     border-radius: 10rpx;
     background: #fff;
   }
   .item-top {
-    font-size: 28rpx;
+    padding: 0 10px;
+    font-size: 36rpx;
     color: #333;
+    margin-bottom: 10px;
   }
   .item-content {
-    font-size: 24rpx;
+    padding: 0 10px;
+    font-size: 30rpx;
     color: #999;
     padding-bottom: 20rpx;
     margin-bottom: 20rpx;
     border-bottom: 1rpx solid #dcdcdc;
   }
   .item-bottom {
-    display:flex;
-    align-items: center;
+    display: flex;
     justify-content: space-between;
     font-size: 24rpx;
     color: #999;

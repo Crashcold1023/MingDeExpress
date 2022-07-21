@@ -1,13 +1,61 @@
 // pages/orderdetail/orderdetail.js
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
+let {
+    getorderId
+} = require('../../api/order.js')
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        goods: [{
+                id: 0,
+                name: '电子产品'
+            },
+            {
+                id: 1,
+                name: '液体粉末'
+            },
+            {
+                id: 2,
+                name: '内地EMS'
+            },
+            {
+                id: 3,
+                name: '广东EMS'
+            },
+            {
+                id: 4,
+                name: '普通货物'
+            },
+        ],
+        statuss: [{
+                id: 0,
+                name: '待支付'
+            },
+            {
+                id: 1,
+                name: '已支付'
+            },
+        ],
+        idstatus: [{
+                id: 0,
+                name: '待入仓'
+            },
+            {
+                id: 1,
+                name: '已入仓'
+            },
+        ],
+        border: false,
+        image: [], //称重图片
+        //订单ID
+        orderId: '',
+        detaildList: {},
+
         show: false,
-        lists: [{}, {}],
+        lists: [],
         // orderstatus:[
 
         // ]
@@ -69,30 +117,51 @@ Page({
             lists: lists,
         })
     },
-    pay(){
-        Dialog.confirm({
-            title: '请确认你的收货地址',
-            message: '如果收货地址有误请联系客服更改',
+    pay() {
+        console.log(this.data.orderId,'111');
+        wx.navigateTo({
+          url: `../Insured/Insured?id=`+this.data.orderId,
         })
-        .then(() => {
-            // on confirm
-            // this.setData({
-            //     lists: lists,
-            // })
-            // console.log(lists)
-            wx.navigateTo({
-              url: '/pages/Insured/Insured',
-            })
-        })
-        .catch(() => {
-            // on cancel
-        });
+        // Dialog.confirm({
+        //         title: '请确认你的收货地址',
+        //         message: '如果收货地址有误请联系客服更改',
+        //     })
+        //     .then(() => {
+        //         // on confirm
+        //         // this.setData({
+        //         //     lists: lists,
+        //         // })
+        //         // console.log(lists)
+        //         wx.navigateTo({
+        //             url: '/pages/Insured/Insured',
+        //         })
+        //     })
+        //     .catch(() => {
+        //         // on cancel
+        //     });
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
-
+    async onLoad(options) {
+        // options
+        console.log('11', options);
+        let id = options.id
+        let result = await getorderId(id)
+        console.log(result, 'shdas');
+        this.setData({
+            orderId:result.data.id
+        })
+        console.log(this.data.orderId);
+        result.data.packageItems.forEach(element => {
+            this.setData({
+                image: element.images
+            })
+        })
+        // console.log(this.data);
+        this.setData({
+            detaildList: result.data
+        })
     },
 
     /**

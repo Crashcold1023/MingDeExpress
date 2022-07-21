@@ -1,3 +1,9 @@
+let {
+    getaddnewress,
+    getress,
+    updateress
+} = require('../../api/address.js')
+
 
 Page({
 
@@ -5,27 +11,70 @@ Page({
      * 页面的初始数据
      */
     data: {
+        showress:false,
+        yuyu:true,
         // 新建地址时的一个默认值
-        address: {
-            id: 0,
-            name: '',
-            mobile: '',
-            city: '',
-            street: '',
-            isDefault: false,
-            checked: false,
-        }
+        memberId: '40039',
+        name: '',
+        phone: '',
+        area: '',
+        city: '',
+        code: '',
+        country: '',
+        status: 0,
+        type: 1,
+        id: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function ({address}) {
-        let obj = JSON.parse(address)
+    async onLoad(options) {
+        console.log(options);
+        let {
+            id,
+            status
+        } = options
+
+        if(!options.id == ''){
+            this.setData({
+                showress:true,
+                yuyu:false
+            })
+        }else{
+                yuyu:true
+        }
+
         this.setData({
-            address:obj
+            id: options.id
+        })
+        console.log(this.data.id);
+        let memberId = wx.getStorageSync('id')
+        let result = await getress(this.data.id, this.data.memberId)
+        console.log(result);
+        this.setData({
+            name: result.data.name,
+            phone: result.data.phone,
+            area: result.data.area,
+            city: result.data.city,
+            code: result.data.code,
+            country: result.data.country,
         })
     },
+
+    // showtime(){
+    //     wx.request({
+    //         url:`http://103.24.177.147:8084//api/member/address/get`,
+    //         method:'GET',
+    //         data:{
+    //             id:this.data.id,
+    //             memberId:this.data.memberId
+    //         },
+    //         success:(res)=>{
+    //             console.log(res);
+    //         }
+    //     })
+    // },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -75,53 +124,39 @@ Page({
     onShareAppMessage: function () {
 
     },
-    // 验证地址信息方法
-    checkAddress() {
-        var address = this.data.address;
-        var tipStr = "";
-        if (address.name.length == 0) {
-            tipStr = "请填写收货人姓名";
-        } else if (address.mobile.length == 0) {
-            tipStr = "请填写收货人手机号";
-        } else if (address.city.length == 0) {
-            tipStr = "请选择所在地址";
-        } else if (address.street.length == 0) {
-            tipStr = "请填写详细地址";
-        }
-        if (tipStr.length == 0) {
-            return true;
-        } else {
-            wx.showToast({
-                icon: 'none',
-                title: tipStr,
-            })
-            return false;
-        }
-    },
+
     inputName(e) {
-        this.data.address.name = e.detail.value;
+        // this.data.address.name = e.detail.value;
+        // console.log(e);
         this.setData({
-            address: this.data.address
+            name: e.detail.value
         })
+        // console.log(this.data.name,'name');
     },
     inputMobile(e) {
-        this.data.address.mobile = e.detail.value;
         this.setData({
-            address: this.data.address
+            phone: e.detail.value
         })
     },
     inputStreet(e) {
-        this.data.address.street = e.detail.value;
         this.setData({
-            address: this.data.address
+            code: e.detail.value
+        })
+    },
+    inputCountry(e) {
+        this.setData({
+            country: e.detail.value
         })
     },
     // 选择所在地址
     bindRegionChange(e) {
-        var city = e.detail.value;
-        this.data.address.city = city.join(" ");
         this.setData({
-            address: this.data.address
+            area: e.detail.value
+        })
+    },
+    bindcity(e) {
+        this.setData({
+            city: e.detail.value
         })
     },
     clickDefault() {
@@ -134,95 +169,74 @@ Page({
             address: this.data.address
         })
     },
-    clickAdd() {
-        if (!this.checkAddress()) {
-            return
-        }
-        var addressList = wx.getStorageSync('addressList');
-        var address = this.data.address;
-        var isAdd = false; // 是否为添加地址
-        var addressListNew = [];
-        var indexDefault = -1; // 默认选中地址的索引
-        var indexCurrent = -1; // 如果是编辑地址，获取当前编辑地址在地址列表中索引
 
-        if (address.id == 0) {
-            isAdd = true;
-            address.id = Math.floor(Math.random() * 1000 + 1);
-            if (addressList) {
-                addressList.forEach(function (v, index) {
-                    if (v.isDefault) {
-                        indexDefault = index;
-                    }
-                    // 如果当前编辑的地址为默认选中地址，将其他所有地址选中状态清除
-                    if (address.isDefault) {
-                        v.isDefault = false;
-                    }
-                })
-            }
-            addressListNew = [address, ...addressList];
-            indexCurrent = 0;
-        } else {
-            // 编辑地址
-            addressList.forEach(function (v, index) {
-                if (v.isDefault) {
-                    indexDefault = index;
-                }
-                // 如果当前编辑的地址为默认选中地址，将其他所有地址选中状态清除
-                if (address.isDefault) {
-                    v.isDefault = false;
-                }
-                // 如果是同一个地址，给旧的地址赋值新地址
-                if (address.id == v.id) {
-                    v.name = address.name;
-                    v.mobile = address.mobile;
-                    v.city = address.city;
-                    v.street = address.street;
-                    v.isDefault = address.isDefault;
-                    indexCurrent = index;
-                }
-            })
-            addressListNew = addressList;
+ 
+
+    async showtime(e) {
+        var id = this.data.id
+        var name = this.data.name;
+        var phone = this.data.phone;
+        var area = this.data.area;
+        var city = this.data.city;
+        var code = this.data.code;
+        var country = this.data.country;
+        var memberId = this.data.memberId
+        console.log(name,'123');
+        var type = 1;
+        var status = 0
+        console.log(memberId);
+        var obj = {
+            id,
+            memberId,
+            name,
+            phone,
+            area,
+            city,
+            code,
+            country,
+            status,
+            type
         }
-        // 如果新的地址列表中没有默认选中地址，将当前地址设置为默认选中地址
-        if (indexDefault == -1) {
-            addressListNew[indexCurrent].isDefault = true;
-        } else {
-            // 如果是编辑地址，并且有选中默认地址，并且默认选中地址和当前编辑地址是同一个，那么将当前地址设置为默认选中
-            if (indexDefault == indexCurrent && !isAdd) {
-                addressListNew[indexCurrent].isDefault = true;
-            }
+        var result = await updateress(obj)
+        wx.navigateBack({
+            delta: 1
+        })
+        console.log(result)
+    },
+
+
+    async submit(e) {
+        var name = this.data.name;
+        var phone = this.data.phone;
+        var area = this.data.area;
+        var city = this.data.city;
+        var code = this.data.code;
+        var country = this.data.country;
+        var memberId = this.data.memberId
+        var type = 1;
+        var status = 0
+        console.log(memberId);
+        var obj = {
+            memberId,
+            name,
+            phone,
+            area,
+            city,
+            code,
+            country,
+            status,
+            type
         }
-        wx.setStorageSync('addressList', addressListNew);
-        wx.showToast({
-            icon: 'success',
-            title: '保存成功！',
-            success() {
-                wx.navigateBack({
-                    delta: 0,
-                })
-            }
+        var result = await getaddnewress(obj)
+        wx.navigateBack({
+            delta: 1
         })
+        console.log(result)
     },
-    clickLocation() {
-        // 点击选择位置
-        wx.authorize({
-            scope: 'scope.userLocation',
-            success(e) {
-                wx.getLocation({
-                    type: 'gcj02',
-                    success(location) {
-                        wx.chooseLocation({
-                            success(res) {
-                                var address_info = res.address;
-                                that.data.address.city = address_info;
-                                that.setData({
-                                    address: that.data.address
-                                })
-                            }
-                        })
-                    }
-                })
-            }
+
+    onShow() {
+        this.setData({
+            memberId: wx.getStorageSync('id')
         })
-    },
+    }
 })

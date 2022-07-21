@@ -6,65 +6,73 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {},
+        nickName: '',
+        avatarUrl: ''
+
     },
 
+    login() {
+        wx.navigateTo({
+            url: '/pages/user/user',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.setUserInfoStorageTime();
+
+        // this.setUserInfoStorageTime();
     },
-    getUserProfile() {
-        var that = this;
-        wx.showModal({
-            title: "提示",
-            content: "是否允许获取微信昵称和头像？",
-            success(res) {
-                if (res.confirm) {
-                    wx.getUserProfile({
-                        desc: "用于完善用户资料",
-                        success: (res) => {
-                            //   app.globalData.userInfo = res.userInfo; //这个我有时候获取不到，所以没管它，但先写着
-                            that.setData({
-                                userInfo: res.userInfo
-                            });
-                            wx.setStorageSync("userInfo", res.userInfo);
-                            let setNowTime = Date.now() + 3600 * 1000 * 24 * 1; // 设置授权有效期
-                            wx.setStorageSync("userInfoStorageTime", setNowTime);
-                        },
-                        fail: function (err) {
-                            console.log(err);
-                        },
-                    });
-                }
-            },
-        });
-    },
+    // getUserProfile() {
+    //     var that = this;
+    //     wx.showModal({
+    //         title: "提示",
+    //         content: "是否允许获取微信昵称和头像？",
+    //         success(res) {
+    //             if (res.confirm) {
+    //                 wx.getUserProfile({
+    //                     desc: "用于完善用户资料",
+    //                     success: (res) => {
+    //                         //   app.globalData.userInfo = res.userInfo; //这个我有时候获取不到，所以没管它，但先写着
+    //                         that.setData({
+    //                             userInfo: res.userInfo
+    //                         });
+    //                         wx.setStorageSync("userInfo", res.userInfo);
+    //                         let setNowTime = Date.now() + 3600 * 1000 * 24 * 1; // 设置授权有效期
+    //                         wx.setStorageSync("userInfoStorageTime", setNowTime);
+    //                     },
+    //                     fail: function (err) {
+    //                         console.log(err);
+    //                     },
+    //                 });
+    //             }
+    //         },
+    //     });
+    // },
     //设置微信用户存储信息的事件 
-    setUserInfoStorageTime() {
-        var that = this;
-        let nowTime = Date.now();
-        let oldTime = wx.getStorageSync("userInfoStorageTime");
-        let userInfo = wx.getStorageSync("userInfo");
-        if (userInfo.nickName != undefined && userInfo.nickName != null && userInfo.nickName != "") {
-            if (oldTime && nowTime < oldTime) {
-                that.setData({
-                    userInfo: userInfo
-                })
-                return;
-            } else {
-                that.getUserProfile();
-            }
-        } else {
-            that.getUserProfile();
-        }
-    },
+    // setUserInfoStorageTime() {
+    //     var that = this;
+    //     let nowTime = Date.now();
+    //     let oldTime = wx.getStorageSync("userInfoStorageTime");
+    //     let userInfo = wx.getStorageSync("userInfo");
+    //     if (userInfo.nickName != undefined && userInfo.nickName != null && userInfo.nickName != "") {
+    //         if (oldTime && nowTime < oldTime) {
+    //             that.setData({
+    //                 userInfo: userInfo
+    //             })
+    //             return;
+    //         } else {
+    //             that.getUserProfile();
+    //         }
+    //     } else {
+    //         that.getUserProfile();
+    //     }
+    // },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady() {
+    onReady(res) {
 
     },
 
@@ -72,7 +80,30 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
+        
+        if (!wx.getStorageSync('avatarUrl')) {
+            wx.navigateTo({
+                url: '/pages/user/user',
+              })
+        } 
+        let id = wx.getStorageSync('id'); //在内存中读取到记录
+        let avatarUrl = wx.getStorageSync('avatarUrl'); //在内存中读取到记录
+        let nickName = wx.getStorageSync('nickName'); //在内存中读取到记录
+        this.setData({
+            id: id,
+            avatarUrl: avatarUrl,
+            nickName: nickName
+        })
 
+        // let { nickName } = wx.getStorageSync('nickName')
+        // console.log(nickName, avatar)
+        // this.setData({
+        //     nickName,
+        //     avatarUrl
+        // })
+        // console.log(res)
+        // console.log(this.data.avatar)
+        // console.log(this.data.nickName)
     },
 
     /**

@@ -53,7 +53,7 @@ Page({
         ],
     },
     onLoad: function () {
-
+        
     },
     //获取当前滑块的index
     bindchange: function (e) {

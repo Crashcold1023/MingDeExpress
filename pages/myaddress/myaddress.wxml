@@ -1,4 +1,4 @@
-<view class="box">
+<view class="box1">
 
     <!-- 当前没有地址布局 -->
     <view wx:if="{{addressList.length==0}}" class="address-none">
@@ -10,18 +10,19 @@
     </view>
 
     <!-- 地址列表 -->
-    <view wx:else class="address-list">
-        <view class="address-item" wx:for="{{addressList}}">
-            <view class="item-top">{{item.name}} {{item.mobile}}</view>
-            <view class="item-content">{{item.city}} {{item.street}}</view>
+    <view wx:else class="address-list" >
+        <view class="box" data-index="{{item.id}}" wx:for="{{addressList}}">
+            <view class="item-top">{{item.name}} {{item.phone}}</view>
+            <view class="item-content">{{item.city}}-{{item.area}}-{{item.country}}</view>
             <view class="item-bottom">
-                <view class="left" bindtap="clickDefault" data-index="{{index}}">
-                    <icon type="{{item.isDefault?'success' : 'circle'}}" size="15"></icon>
-                    设为默认地址
+                <view class="left" style="margin: 12px 0px;">
+                    <!-- <icon type="{{item.isDefault ? 'success' : 'circle'}}" size="15"></icon> -->
+                    <van-checkbox value="{{ item.status == 1 ? 1 : 0}}" bind:change="clickDefault" data-index="{{item.id}}">设为默认地址</van-checkbox>
                 </view>
+                <van-tag style="margin: 10px;" bindtap="getress" data-index="{{item.id}}" type="danger" size="large">选择该地址</van-tag>
                 <view class="right">
-                    <view class="txt" bindtap="clickDelete" data-index="{{index}}">删除</view>
-                    <view class="txt" bindtap="clickEdit" data-index="{{index}}">编辑</view>
+                    <view class="txt" bindtap="clickDelete" data-index="{{item.id}}">删除</view>
+                    <view class="txt" bindtap="clickEdit" data-index="{{item.id}}" data-checked="{{item.status}}">编辑</view>
                 </view>
             </view>
         </view>
