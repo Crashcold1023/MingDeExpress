@@ -1,5 +1,5 @@
 
-<van-tabs sticky title-active-color="#99CCFF">
+<van-tabs sticky title-active-color="#2c2c2c">
   <van-tab title="全部">
   <view wx:for="{{much}}" wx:key="id">
   <view class="mo">

@@ -7,7 +7,7 @@
             <view style="margin: 10px;font-size: 18px;text-align: left;font-family: PingFangSC-medium;">保价</view>
         </view>
         <view style="padding: 0px 10px;">
-            <van-field placeholder="请填写真实物品价格" />
+            <van-field bind:input="input" placeholder="请填写真实物品价格" />
         </view>
     </view>
     <view class="box2">
@@ -21,7 +21,7 @@
         </view>
         <van-divider />
         <view style="text-align: left;padding: 0px 45px;margin-top: 20px;">
-            <view>保险费:￥30</view>
+            <view>保险费:￥{{money}}</view>
         </view>
     </view>
     <view class="box3">
@@ -36,15 +36,15 @@
         </view>
         <view style="display: flex; justify-content: space-around;     margin-top: 2px;">
             <view style="padding: 8px;">关税险(保价的2%)</view>
-            <van-switch checked="{{ checked1 }}" />
+            <van-switch bind:input="onChange1" checked="{{ checked1 }}" />
         </view>
         <van-divider />
         <view style="text-align: left;padding: 0px 45px;margin-top: 20px;">
-            <view>保险费:￥20</view>
+            <view>保险费:￥{{much}}</view>
         </view>
     </view>
     <view style="display:flex;position:fixed;bottom:0;width: 100%;">
         <button open-type="contact" style="width: 200px;background-color: #be99ff;color: #fff;">联系客服</button>
-        <button style="width: 200px;background-color:#7232dd;color: #fff;" bindtap="onChange1">下一步</button>
+        <button style="width: 200px;background-color:#7232dd;color: #fff;" bindtap="onChange2">下一步</button>
     </view>
 </view>

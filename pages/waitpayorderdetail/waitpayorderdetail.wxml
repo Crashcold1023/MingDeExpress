@@ -29,12 +29,15 @@
                 <view>称重重量:<text>{{detaildList.weight}}kg</text></view>
                 <view>分拣备注:<text style="color: saddlebrown;">{{detaildList.pickingRemarks}}</text></view>
                 <view>大宝贝猪:<text style="color: saddlebrown;">{{detaildList.packedRemarks}}</text></view>
-                <view style="display: flex;">称重图片:
-                    <view style="display: flex; justify-content: space-between;" wx:for="{{image}}" wx:key="*this">
+                <view>称重图片:
+                <view style="display: flex;justify-content: space-evenly;">
+                    <view wx:for="{{image}}" wx:key="*this">
                         <image style="width: 93px;height: 82px;" src="http://103.24.177.147:8084/{{item}}"></image>
                         <!-- <image style="width: 93px;height: 82px;" src="{{detaildList.images}}"></image>
                         <image style="width: 93px;height: 82px;" src="{{detaildList.images}}"></image> -->
                     </view>
+                </view>
+                    
                 </view>
                 <view>账单:
                     <view wx:for="{{detaildList.packageItems[0].items}}" class="orderzhanghdan" style="display: flex;justify-content: space-around; align-items: center;margin-bottom: 10px;">

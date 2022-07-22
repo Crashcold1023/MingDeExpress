@@ -17,7 +17,7 @@
 }
 
 .smallbox2 {
-    margin: 0 auto;
+    margin: 20px auto;
     width: 360px;
     height: 144px;
     line-height: 20px;

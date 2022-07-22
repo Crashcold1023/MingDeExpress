@@ -118,6 +118,7 @@ Page({
             detaildList: result.data
         })
         console.log(this.data.detaildList, '数据');
+        // this.close()
     },
 
     /**

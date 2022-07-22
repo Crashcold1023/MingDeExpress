@@ -1,38 +1,109 @@
 // pages/payorderdetail/payorderdetail.js
+let {
+    getorderId,
+    gotoinsured
+} = require('../../api/order.js')
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        show:false,
-        show1:false,
+        show: false,
+        show1: false,
+        id: '',
+        detaildList: {},
+        goods: [{
+                id: 0,
+                name: '电子产品'
+            },
+            {
+                id: 1,
+                name: '液体粉末'
+            },
+            {
+                id: 2,
+                name: '内地EMS'
+            },
+            {
+                id: 3,
+                name: '广东EMS'
+            },
+            {
+                id: 4,
+                name: '普通货物'
+            }
+        ],
+        nonceStr: '',
+        package: '',
+        paySign: '',
+        signType: '',
+        timeStamp: '',
     },
     onClose() {
-        this.setData({ show: true });
-      },
+        this.setData({
+            show: true
+        });
+    },
     onClose1() {
-        this.setData({ show1: true });
-      },
-      fee(){
-        this.setData({ show: false });
-      },
-      fee1(){
-        this.setData({ show1: false });
-      },
-      close(){
-        this.setData({ show1: false });
-      },
-      onClickButton(){
-        wx.navigateTo({
-          url: '/pages/paysucces/paysucces',
+        this.setData({
+            show1: true
+        });
+    },
+    fee() {
+        this.setData({
+            show: false
+        });
+    },
+    fee1() {
+        this.setData({
+            show1: false
+        });
+    },
+    close() {
+        this.setData({
+            show1: false
+        });
+    },
+    async onClickButton() {
+        let result = await gotoinsured(this.data.id)
+        console.log(result);
+        this.setData({
+            nonceStr: result.data.nonceStr,
+            package: result.data.package,
+            paySign: result.data.paySign,
+            signType: result.data.signType,
+            timeStamp: result.data.timeStamp,
         })
-      },
+        wx.requestPayment({
+            nonceStr: result.data.nonceStr,
+            package: result.data.package,
+            paySign: result.data.paySign,
+            signType: result.data.signType,
+            timeStamp: result.data.timeStamp,
+            success(res) {
+                console.log(res,'支付成功');
+            },
+            fail(res) {}
+        })
+        // wx.navigateTo({
+        //     url: '/pages/paysucces/paysucces',
+        // })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
-
+    async onLoad(options) {
+        console.log(options.id, 'ididi');
+        let id = options.id
+        this.setData({
+            id: options.id
+        })
+        let result = await getorderId(id)
+        console.log(result);
+        this.setData({
+            detaildList: result.data
+        })
     },
 
     /**

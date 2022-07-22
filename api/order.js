@@ -116,12 +116,22 @@ exports.okok = function (id) {
 exports.insured = function (id,logisticsValue,lossRisk,tariffsRisk) {
     return request({
         method: 'POST',
-        url: `${API_URL}api/order/setSafe`,
+        url: `${API_URL}/api/order/setSafe`,
         data: {
             id,
             logisticsValue,
             lossRisk,
             tariffsRisk
+        }
+    })
+}
+//提交订单信息
+exports.gotoinsured = function (id) {
+    return request({
+        method: 'POST',
+        url: `${API_URL}/api/order/payOrder`,
+        data: {
+            id,
         }
     })
 }
